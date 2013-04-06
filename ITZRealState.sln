@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITZRealStateAPI", "ITZRealState\ITZRealStateAPI.csproj", "{AF5FD13B-7528-4F28-A645-CFE61302989E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITZRealStateWeb", "ITZRealStateWeb\ITZRealStateWeb.csproj", "{6EACD0C8-07E6-4387-9F20-AB93DDC59DEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF5FD13B-7528-4F28-A645-CFE61302989E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF5FD13B-7528-4F28-A645-CFE61302989E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF5FD13B-7528-4F28-A645-CFE61302989E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF5FD13B-7528-4F28-A645-CFE61302989E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EACD0C8-07E6-4387-9F20-AB93DDC59DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EACD0C8-07E6-4387-9F20-AB93DDC59DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EACD0C8-07E6-4387-9F20-AB93DDC59DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EACD0C8-07E6-4387-9F20-AB93DDC59DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
