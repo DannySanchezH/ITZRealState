@@ -9,5 +9,6 @@ namespace ITZRealState.Models
         [Key]
         public long IdListing { get; set; }
         public int IdRoom { get; set; }
+        public float Amount { get; set; }
     }
 }

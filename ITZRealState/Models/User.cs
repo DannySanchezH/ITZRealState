@@ -14,5 +14,6 @@ namespace ITZRealState.Models
         public string facebookId { get; set; }
         public int zipCode { get; set;}
         public string email { get; set; }
+        public string password { get; set; }
     }
 }

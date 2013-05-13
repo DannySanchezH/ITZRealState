@@ -35,6 +35,10 @@ namespace ITZRealState.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(30);
 
+            this.Property(t => t.password)
+                .IsRequired()
+                .HasMaxLength(16);
+
             // Table & Column Mappings
             this.ToTable("USER");
             this.Property(t => t.IdUser).HasColumnName("IDUSER");
@@ -44,6 +48,7 @@ namespace ITZRealState.Models.Mapping
             this.Property(t => t.facebookId).HasColumnName("FACEBOOKID");
             this.Property(t => t.zipCode).HasColumnName("ZIPCODE");
             this.Property(t => t.email).HasColumnName("EMAIL");
+            this.Property(t => t.password).HasColumnName("PASSWORD");
         }
     }
 }

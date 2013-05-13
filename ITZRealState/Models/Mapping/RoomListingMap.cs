@@ -15,10 +15,14 @@ namespace ITZRealState.Models.Mapping
             this.Property(t => t.IdRoom)
                 .IsRequired();
 
+            this.Property(t => t.Amount)
+                .IsRequired();
+
             // Table & Column Mappings
             this.ToTable("ROOM_LISTING");
             this.Property(t => t.IdListing).HasColumnName("IDLISTING");
             this.Property(t => t.IdRoom).HasColumnName("IDROOM");
+            this.Property(t => t.Amount).HasColumnName("AMOUNT");
         }
     }
 }

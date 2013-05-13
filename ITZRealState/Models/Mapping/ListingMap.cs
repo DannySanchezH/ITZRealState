@@ -11,9 +11,17 @@ namespace ITZRealState.Models.Mapping
             this.HasKey(t => t.IdListing);
 
             // Properties
-            this.Property(t => t.address)
+            this.Property(t => t.street)
                 .IsRequired()
-                .HasMaxLength(250);
+                .HasMaxLength(100);
+
+            this.Property(t => t.number)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            this.Property(t => t.colony)
+                .IsRequired()
+                .HasMaxLength(100);
 
             this.Property(t => t.lotSize)
                 .IsRequired();
@@ -29,16 +37,21 @@ namespace ITZRealState.Models.Mapping
 
             this.Property(t => t.sold)
                 .IsRequired();
+            this.Property(t => t.zipcode)
+                .IsRequired();
 
             // Table & Column Mappings
             this.ToTable("LISTING");
             this.Property(t => t.IdListing).HasColumnName("IDLISTING");
-            this.Property(t => t.address).HasColumnName("ADDRESS");
+            this.Property(t => t.street).HasColumnName("STREET");
+            this.Property(t => t.number).HasColumnName("NUMBER");
+            this.Property(t => t.colony).HasColumnName("COLONY");
             this.Property(t => t.lotSize).HasColumnName("LOTSIZE");
             this.Property(t => t.constSize).HasColumnName("CONSTSIZE");
             this.Property(t => t.price).HasColumnName("PRICE");
             this.Property(t => t.IdUser).HasColumnName("IDUSER");
             this.Property(t => t.sold).HasColumnName("SOLD");
+            this.Property(t => t.zipcode).HasColumnName("ZIPCODE");
         }
     }
 }
