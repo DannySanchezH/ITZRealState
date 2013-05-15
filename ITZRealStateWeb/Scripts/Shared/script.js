@@ -1,43 +1,23 @@
-
-
-  
-$(document).ready(function(){
-    $("#login").click(function(){
-	$('#logInF').toggle('slow');
-    });
+//    $("#login").click(function(){
+//	    $('#logInF').show('slow');
+//    });
 		  
-    $("#sig").click(function(){
-      $('#signInF').toggle('slow');
+//    $("#sig").click(function(){
+//      $('#signInF').toggle('slow');
+//    });
+//});
+
+$(document).ready(function () {
+    $("#login").click(function () {
+        $('/Account/Login').show('slow');
     });
 });
 
+function ShowLogin() {
+   
+    $("#sidebar_container").hide("slow").load('/Account/Login').show("slow");
+};
 
-/*		 //Otros efectos con "fadeIn / fadeOut" 	  y 	"how / hide"
-var banLog = false, banSign = false; //  false cuando no se Žsta mostrando el formulario.
-
-$(document).ready(function(){
-    $("#login").click(function(){
-	if(banLog==true){	//Si se Žsta mostrando "Esconder"
-	    //$("#logInF").hide('slow');
-            $("#logInF").fadeOut('slow');
-	    banLog=false;
-        }else{ //  "Mostar"
-	    //$("#logInF").show('slow');
-            $("#logInF").fadeIn('slow');
-	    banLog=true;
-	}
-    });
-		  
-    $("#sig").click(function(){
-	if(banSign==true){	//Si se Žsta mostrando "Esconder"
-            //$("#signInF").hide('slow');
-            $("#signInF").fadeOut('slow');
-	    banSign=false;
-	}else{ //  "Mostar"
-            //$("#signInF").show('slow');
-	    $("#signInF").fadeIn('slow');
-	    banSign=true;
-	}
-    });
-});
-*/
+//$('.login').click(function () {
+//    $("#sidebar_container").hide("slow").load('logInF').show("slow");
+//});

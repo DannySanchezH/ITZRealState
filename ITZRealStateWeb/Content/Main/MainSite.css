@@ -32,11 +32,10 @@ article, aside, figure, footer, header, hgroup, nav, section {
 
 body { 
   font: normal .80em arial, sans-serif;
-  background-image:url(/images/back.png);
+  background-image:url(/images/Home/back.png);
   background-position: center;
   background-repeat:yes-repeat;
   background-color: rgba(123, 33, 13, .6);
-
   color: #FFFFFF;
 } 
 
@@ -154,18 +153,18 @@ ol li {
   border-radius: 0px 0px 0px 0px;
   -moz-border-radius: 3px 3px 3px 3px;
   -webkit-border: 1px 1px 3px 3px;
-  background: transparent url(../images/main.png);
+  background: transparent url(/images/Home/main.png);
   padding-bottom: 100px;
 }
 
 header { 
   background: transparent;
-  height: 179px;
+  height: 50px;
 }
 
 #logo { 
   width: 930px;
-  height: 179px;
+  height: 100px;
   background: transparent;
   color: #888;
   padding: 0;
@@ -214,6 +213,7 @@ nav {
 
 #site_content { 
   width: 1000px;
+  height:250px;
   overflow: hidden;
   margin: 0px auto 0 auto;
   padding: 15px 0 15px 0;
@@ -375,13 +375,15 @@ footer a:hover {
   color: #FFF;
 }
 
-.form_settings textarea, .form_settings select { 
+.form_settings textarea, .form_settings TypeL { 
   font: 100% arial; 
   width: 299px;
+  height: 20px;
 }
 
-.form_settings select { 
-  width: 310px;
+.form_settings TypeL { 
+  width: 200px;
+  height: 20px;
 }
 
 .form_settings .checkbox { 
@@ -583,16 +585,16 @@ ul#nav ul li a:hover, ul#nav ul li a:focus {
 		0px 0px 0px rgba(255,255,255,0.4);
 	float: left ;
 }
-.button:hover {
+.button:click {
   padding-bottom: 6px;
-  padding-left: 36px;
+  /*padding-left: 36px;
   padding-right: 33px;
-  padding-top: 8px;
+  padding-top: 8px;*/
     cursor:pointer;
 }
 
 
-.select {
+.TypeL {
     padding:4px;
     margin: 0;
     border-radius:4px;
@@ -605,11 +607,10 @@ ul#nav ul li a:hover, ul#nav ul li a:focus {
     outline:none;
     display: inline-block;
     -webkit-appearance:none; 
-    cursor:pointer;
 }
 
- { 
-   .select {padding-right:18px}
+ 
+   .TypeL {padding-right:18px}
     label {position:relative}
    label:after {
         content:'<>';
@@ -623,16 +624,33 @@ ul#nav ul li a:hover, ul#nav ul li a:focus {
         pointer-events:none;
         border-bottom:1px solid #ddd;
     }
+
+
+#city {
+height:20px;
+width:200px;
+font-size:16px;
+float:left;
+ margin: 3px;
+
 }
 
-#id {
+#Distance {
+height:20px;
+width:200px;
+font-size:16px;
+ float:left;
+ margin: 3px;
+}
+
+#Price {
 height:20px;
 width:100px;
 font-size:16px;
  float:left;
  margin: 3px;
-
 }
+
 
 #id2 {
 height:20px;
@@ -644,8 +662,6 @@ font-size:18px;
 
 
 .sidebar2 { 
-
-
   margin: center;
   background: #5c3e32;
   border: 2px solid #4e3329;
@@ -654,6 +670,7 @@ font-size:18px;
   border-radius: 0px 0px 0px 0px;
   padding: 0 15px 5px 13px;
   opacity: 0.8;
-   float:none;
-    vertical-align:center;
+  float:none;
+  vertical-align:center;
+  height:100px;
 }

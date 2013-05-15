@@ -7,6 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
     <!-- modernizr enables HTML5 elements and feature detects -->
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
@@ -15,7 +16,7 @@
 
     <div id="menu_container">
         <ul class="sf-menu edgeLoad-EDGE-1562389" id="nav">
-            <li id="txt" class="edgeLoad-EDGE-1562389"><a id="login" href="#" class="edgeLoad-EDGE-1562389">log in</a></li>
+            <li id="txt" class="edgeLoad-EDGE-1562389"><a href="Account/Login" class="edgeLoad-EDGE-1562389" ">Log In</a></li>
         </ul>
     </div>
 
@@ -28,7 +29,7 @@
                 <div id="logo_text">
                     <!-- class="logo_colour", allows you to change the colour of the text -->
 
-                    <h1><a href="index.html">ITZ<span class="color del ogo?">realstate</span></a></h1>
+                    <h1><a href="index.html">ITZ<span class="color del ogo?">RealState</span></a></h1>
                     <h4>
                         <pre>WHERE EVER YOU ARE...FIND YOU PLACE</pre>
                     </h4>
@@ -45,3 +46,7 @@
     </div>
 </body>
 </html>
+
+@section Scripts {
+    
+}

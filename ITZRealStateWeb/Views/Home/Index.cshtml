@@ -1,5 +1,4 @@
-﻿<header>
-    @Styles.Render("~/Content/css")
+﻿<div>
     <nav>
         <div id="juer" class="sidebar2">
             <div id="sear_settings" class="form_settings">
@@ -7,30 +6,16 @@
                     <h4>SEARCH YOUR HOME</h4>
                 </p>
                 <form action="#" method="post">
-                    <input id="id" class="form_settings" type="text" name="name" value="city or zipcode" />
-                    <select class="select" id="id" name="name">
-                        <option value="1">all types</option>
-                        <option value="2">single familily</option>
-                        <option value="3">multi familily</option>
-                        <option value="4">rentable</option>
-                    </select>
-                    <p>
-                        <input id="id" class="form_settings" type="text" name="name" value="distance" />
-                    </p>
-                    <p>
-                        <input id="id" class="form_settings" type="text" name="name" value="$min price" />
-                    </p>
+                    <input id="city" class="form_settings" type="text" name="name" value="city or zipcode" />
+                    <input id="Distance" class="form_settings" type="text" name="name" value="distance" />
+                    <input id="Price" class="form_settings" type="text" name="name" value="$min price" />
                     <p id="id2">To</p>
-                    <p>
-                        <input id="id" type="text" name="name" value="$max Price" />
-                    </p>
+                    <input id="Price" type="text" name="name" value="$max Price" />
+                    @* Type of listing *@
                 </form>
                 <div id="id3">
                     <p>
                         <button type="button" name="" value="" class="button">Search</button>
-                    </p>
-                    <p>
-                        <button type="button" name="" value="" class="button">Save Search</button>
                     </p>
                 </div>
             </div>
@@ -91,7 +76,7 @@
         </p>
         <p>what are you waiting for!?</p>
     </div>
-</header>
+</div>
 
 
 
@@ -101,13 +86,10 @@
     <div id="sidebar_container">
     </div>
     <div class="content">
-        <h1>cuerpo del index</h1>
-        <p>no se q poner aqui >m</p>
     </div>
 </div>
 <footer>
-    <p>
-        Copyright ITZ REALSTATE by deneb systems
+    Copyright ITZ REALSTATE by deneb systems
 </footer>
 
 
