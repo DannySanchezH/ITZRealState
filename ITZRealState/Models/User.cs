@@ -15,5 +15,6 @@ namespace ITZRealState.Models
         public int zipCode { get; set;}
         public string email { get; set; }
         public string password { get; set; }
+        public string accesstoken { get; set; }
     }
 }
