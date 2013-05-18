@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ITZRealStateWeb.Models;
+using ITZRealStateWeb.Helpers;
+
 
 namespace ITZRealStateWeb.Controllers
 {
-    public class UserController : Controller
+    [Authorize]
+    public class UserController : BaseWebController
     {
         //
         // GET: /User/
 
         public ActionResult Index()
         {
-
             return View();
         }
 

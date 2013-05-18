@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<nav>
+    <div id="menu_container" class="left">
+        <ul class="sf-menu" id="nav">
+            <li><a href="examples.html">Sale Agents</a></li>
+            <li><a href="#">Listings</a></li>
+            <li><a href="page.html">favorites</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="site_content">
+</div>
+
+<footer>
+    <p>Copyright 2013 ITZ realstate</p>
+</footer>
+
+<p>&nbsp;</p>
+<!-- javascript at the bottom for fast page loading -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.easing-sooper.js"></script>
+<script type="text/javascript" src="js/jquery.sooperfish.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('ul.sf-menu').sooperfish();
+    });
+</script>

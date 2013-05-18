@@ -48,46 +48,37 @@ namespace ITZRealStateWeb.Controllers
         //            base.OnActionExecuting(filterContext);
         //        }
 
-        //        protected override void OnActionExecuted(ActionExecutedContext filterContext)
-        //        {
-        //            String actionName = filterContext.ActionDescriptor.ActionName;
-        //            String controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
-        //            try
-        //            {
-        //                List<string> phoneAgents = new List<string>() { "ipod", "iphone", "android 2", "blackberry", "opera mobi", "windows phone" };
-        //                MobileRedirectUtility mru = new MobileRedirectUtility(phoneAgents);
-        //                if (mru.IsPhone())
-        //                {
-        //                    filterContext.Result = Redirect(ConfigurationManager.AppSettings["MobileUrl"]);
-        //                }
-        //                else
-        //                {
-        //                    if ((WebSecurity.IsAuthenticated) && (actionName != "LogOff"))
-        //                    {
-        //                        if (ibo != null)
-        //                        {
-        //                            ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
-        //                            ViewBag.IBONum = ibo.IBONum;
-        //                            ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
-        //                            ViewBag.MenuItems = menuItems;
-        //                            ViewBag.AlertItems = listAlerts;
-        //                            ViewBag.FollowupsCount = Followups.Count;
-        //                        }
-        //                        else
-        //                        {
-        //                            if ((actionName != "AddIBO") && (controllerName != "IBO"))
-        //                            {
-        //                                filterContext.Result = RedirectToAction("AddIBO", "IBO");
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //            catch { }
-        //            ViewBag.actionName = actionName;
-        //            ViewBag.controllerName = controllerName;
-        //            base.OnActionExecuted(filterContext);
-        //        }
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            String actionName = filterContext.ActionDescriptor.ActionName;
+            String controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+            try
+            {
+                    if ((WebSecurity.IsAuthenticated) && (actionName != "LogOff"))
+                    {
+                        if (User != null)
+                        {
+                            //ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
+                            //ViewBag.IBONum = ibo.IBONum;
+                            //ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
+                            //ViewBag.MenuItems = menuItems;
+                            //ViewBag.AlertItems = listAlerts;
+                            //ViewBag.FollowupsCount = Followups.Count;
+                        }
+                        else
+                        {
+                            if ((actionName != "AddIBO") && (controllerName != "IBO"))
+                            {
+                                filterContext.Result = RedirectToAction("Create","User");
+                            }
+                        }
+                    }
+                }
+            catch { }
+            ViewBag.actionName = actionName;
+            ViewBag.controllerName = controllerName;
+            base.OnActionExecuted(filterContext);
+        }
 
         //        internal Helpers.Cookies Cookies;
 
