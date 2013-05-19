@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ITZRealStateWeb.Controllers
 {
-
+    [Authorize]
     public class DashboardController : BaseWebController
     {
         //

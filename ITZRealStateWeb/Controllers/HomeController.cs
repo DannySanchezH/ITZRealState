@@ -8,16 +8,29 @@ namespace ITZRealStateWeb.Controllers
 {
     public class HomeController : Controller
     {
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+
+            //string cultureName = null;
+            //HttpCookie cultureCookie = Request.Cookies["_ibovirtualculture"];
+            //if (cultureCookie != null)
+            //    cultureName = cultureCookie.Value;
+            //else
+            //    cultureName = Request.UserLanguages[0];
+
+            //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
+            //Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+
+            base.OnActionExecuted(filterContext);
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modifique esta plantilla para poner en marcha su aplicación ASP.NET MVC.";
-
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Página de descripción de la aplicación.";
 
             return View();
         }

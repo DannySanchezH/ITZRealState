@@ -1,5 +1,4 @@
-﻿
-#signInF, #logInF{
+signInF, #logInF{
   display: none;
 }
 
@@ -150,7 +149,6 @@ ol li {
 #main {
   margin: 50px auto;
   width: 1340px;
-  height:10px;
   border-radius: 0px 0px 0px 0px;
   -moz-border-radius: 3px 3px 3px 3px;
   -webkit-border: 1px 1px 3px 3px;
@@ -158,15 +156,9 @@ ol li {
   padding-bottom: 100px;
 }
 
-#imagePorfile{
-    height:50px;
-    width:50px;
-     border-radius: 10px 10px 10px 10px;
-}
-
 header { 
   background: transparent; 
- height: 10px;
+ height: 300px;
 
 }
 
@@ -615,8 +607,7 @@ ul#nav ul li a:hover, ul#nav ul li a:focus {
     cursor:pointer;
 }
 
- { 
-   .select {padding-right:18px}
+ 
     label {position:relative}
    label:after {
         content:'<>';
@@ -630,7 +621,6 @@ ul#nav ul li a:hover, ul#nav ul li a:focus {
         pointer-events:none;
         border-bottom:1px solid #ddd;
     }
-}
 
 #id {
 height:20px;

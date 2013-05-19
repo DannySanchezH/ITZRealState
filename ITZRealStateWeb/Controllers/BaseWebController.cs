@@ -15,10 +15,10 @@ namespace ITZRealStateWeb.Controllers
 
         public BaseWebController()
         {
-            //if (WebSecurity.Initialized == false)
-            //{
-            //    SimpleMembershipInitializer();
-            //}
+            if (WebSecurity.Initialized == false)
+            {
+                SimpleMembershipInitializer();
+            }
         }
 
         public bool SimpleMembershipInitializer()
@@ -42,11 +42,10 @@ namespace ITZRealStateWeb.Controllers
             }
         }
 
-        //        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        //        {
-        //            Cookies = new Helpers.Cookies(filterContext.HttpContext);
-        //            base.OnActionExecuting(filterContext);
-        //        }
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+        }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
@@ -67,7 +66,7 @@ namespace ITZRealStateWeb.Controllers
                         }
                         else
                         {
-                            if ((actionName != "AddIBO") && (controllerName != "IBO"))
+                            if ((actionName != "Create") && (controllerName != "User"))
                             {
                                 filterContext.Result = RedirectToAction("Create","User");
                             }
@@ -80,122 +79,9 @@ namespace ITZRealStateWeb.Controllers
             base.OnActionExecuted(filterContext);
         }
 
-        //        internal Helpers.Cookies Cookies;
-
-        //        #region General Properties
-
-        //        #region Not Cookie Saved
-
-        //        public List<Alert> listAlerts
-        //        {
-        //            get
-        //            {
-        //                BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-        //                List<Alert> _alerts = client.Get<List<Alert>>(ibo.IBONum);
-        //                return _alerts;
-        //            }
-        //        }
-
-        //        public List<ContactFollowup> Followups
-        //        {
-        //            get
-        //            {
-        //                BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-        //                List<ContactFollowup> _followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
-        //                return _followups;
-        //            }
-        //        }
-
-        //        #endregion
-
-        //        #region Cookie Saved
-
-        //        public string FacebookId
-        //        {
-        //            get
-        //            {
-        //                return Cookies.fidCookie.GetFacebookID();
-        //            }
-        //            set
-        //            {
-        //                if (value != null) Cookies.fidCookie.SetFacebookID(value); else Cookies.fidCookie.Nullify();
-        //            }
-        //        }
-
-        //        public string AccessToken
-        //        {
-        //            get
-        //            {
-        //                return Cookies.atCookie.GetAccessToken();
-        //            }
-        //            set
-        //            {
-        //                if (value != null) Cookies.atCookie.SetAccessToken(value); else Cookies.atCookie.Nullify();
-        //            }
-        //        }
-
-        //        public IBO ibo
-        //        {
-        //            get
-        //            {
-        //                IBO _ibo = Cookies.iboCookie.GetIBO();
-        //                if (_ibo == null)
-        //                {
-        //                    BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-        //                    _ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
-        //                    Cookies.iboCookie.SetIBO(_ibo);
-        //                }
-        //                return _ibo;
-        //            }
-        //        }
-
-        //        public List<Step> menuItems
-        //        {
-        //            get
-        //            {
-        //                List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
-        //                if (_menuItems == null)
-        //                {
-        //                    BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-        //                    _menuItems = client.Get<List<Step>>();
-        //                    Cookies.menuItemsCooke.SetMenuItems(_menuItems);
-        //                }
-        //                return _menuItems;
-        //            }
-        //        }
-
-        //        #endregion
-
-        //        #region From Configuration
-
         public string baseApiUrl
         {
             get { return ConfigurationManager.AppSettings["ApiUrl"]; }
         }
-
-        //        public long eventbriteOrginizerId
-        //        {
-        //            get
-        //            {
-        //                string oId = ConfigurationManager.AppSettings["EventbriteOrginizerId"];
-        //                return long.Parse(oId);
-        //            }
-        //        }
-
-        //        public string eventbriteUserKey
-        //        {
-        //            get { return ConfigurationManager.AppSettings["EventbriteUserKey"]; }
-        //        }
-
-        //        public string eventbriteApiKey
-        //        {
-        //            get { return ConfigurationManager.AppSettings["EventbriteApiKey"]; }
-        //        }
-
-        //        #endregion
-
-        //        #endregion
-
-        //    }
     }
 }

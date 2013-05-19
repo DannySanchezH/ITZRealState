@@ -15,16 +15,25 @@
         <header>
             <div id="logo">
                 <span class="left">
-                    <img src="Images/Dashboard/logoITZ.png" alt="example graphic" /></span>
+                    <a href="/home/">
+                        <img src="Images/Dashboard/logoITZ.png" alt="example graphic" /></a></span>
                 <div id="logo_text">
                     <div id="menu_container2">
                         <ul class="sf-menu edgeLoad-EDGE-1562389" id="nav">
                             <span class="left">
-                                <img src="images/dashboard/perfil.jpg" alt="example graphic" id="imagePorfile"/></span>
+                                <img src="images/dashboard/perfil.jpg" alt="example graphic" id="imagePorfile" /></span>
                             <li id="txt" class="edgeLoad-EDGE-1562389"><a id="login" href="#" class="edgeLoad-EDGE-1562389">Hi! My Name</a>
                                 <ul>
                                     <li><a href="#">Account</a></li>
-                                    <li><a href="#">Log out</a></li>
+                                    <li>
+                                        <span class="logout-btn">
+                                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn-on">Log off</a>
+                                            }
+                                        </span>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

@@ -185,3 +185,4 @@ C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\Microsoft.
 C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\WebMatrix.WebData.resources.dll
 C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.dll
 C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.pdb
+C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache
