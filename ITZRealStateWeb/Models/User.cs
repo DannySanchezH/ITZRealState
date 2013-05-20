@@ -19,9 +19,6 @@ namespace ITZRealStateWeb.Models
         [Display(Name = "Last name")]
         public string lastName { get; set; }
 
-        [Required]
-        [Display(Name = "User name")]
-        public string userName { get; set; }
 
         [Display(Name = "Facebook")]
         public string facebookId { get; set; }
@@ -32,10 +29,6 @@ namespace ITZRealStateWeb.Models
         [Required]
         [Display(Name = "Email")]
         public string email { get; set; }
-
-        [Required]
-        [Display(Name = "Password")]
-        public string password { get; set; }
 
         [Display(Name = "Access Token")]
         public string accesstoken { get; set; }

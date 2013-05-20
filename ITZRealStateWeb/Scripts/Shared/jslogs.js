@@ -1,6 +1,4 @@
 	
-	
-	<script type='text/javascript'>//<![CDATA[
 $(window).load(function(){
  $("#txt").click(function(){
     if($("#txt").is(':visible'))

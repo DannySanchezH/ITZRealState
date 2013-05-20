@@ -33,7 +33,7 @@ namespace ITZRealStateWeb.Controllers
                         ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                     }
                 }
-                WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                //WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 return true;
             }
             catch (Exception ex)

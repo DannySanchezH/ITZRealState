@@ -10,11 +10,9 @@ namespace ITZRealState.Models
         public long IdUser { get; set; }
         public string firstName { get; set; }
         public string lastName{ get; set; }
-        public string userName { get; set; }
         public string facebookId { get; set; }
         public int zipCode { get; set;}
         public string email { get; set; }
-        public string password { get; set; }
         public string accesstoken { get; set; }
     }
 }

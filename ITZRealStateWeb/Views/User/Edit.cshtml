@@ -1,17 +1,18 @@
 ﻿@model ITZRealStateWeb.Models.User
 
-@{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
-}
-
-<h2>Create</h2>
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("EditUserAjax", "User", FormMethod.Post, new { @class = "metro-form", id = "current_form" })) {
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>User</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdUser)
+            @Html.ValidationMessageFor(model => model.IdUser)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.firstName)
@@ -30,6 +31,14 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.facebookId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.facebookId)
+            @Html.ValidationMessageFor(model => model.facebookId)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.zipCode)
         </div>
         <div class="editor-field">
@@ -44,18 +53,23 @@
             @Html.EditorFor(model => model.email)
             @Html.ValidationMessageFor(model => model.email)
         </div>
-        
-        <p>
-            <input type="submit" value="Create" />
-        </p>
 
-        @Html.HiddenFor(model => model.IdUser)
-        @Html.HiddenFor(model => model.facebookId)
-        @Html.HiddenFor(model => model.accesstoken)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.accesstoken)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.accesstoken)
+            @Html.ValidationMessageFor(model => model.accesstoken)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
     </fieldset>
 }
 
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<script type="text/javascript">
+	$(document).ready(function () {
+		$.validator.unobtrusive.parse("#current_form");
+	});
+</script>

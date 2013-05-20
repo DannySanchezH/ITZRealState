@@ -59,7 +59,9 @@ namespace ITZRealStateWeb.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
+            User user = client.Get<User>(id);
+            return View(User);
         }
 
         //

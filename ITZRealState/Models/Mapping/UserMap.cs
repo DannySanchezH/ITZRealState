@@ -19,9 +19,6 @@ namespace ITZRealState.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.userName)
-                .IsRequired()
-                .HasMaxLength(20);
 
 
             this.Property(t => t.facebookId)
@@ -35,9 +32,6 @@ namespace ITZRealState.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(30);
 
-            this.Property(t => t.password)
-                .IsRequired()
-                .HasMaxLength(16);
 
             this.Property(t => t.accesstoken)
                 .IsRequired()
@@ -48,11 +42,9 @@ namespace ITZRealState.Models.Mapping
             this.Property(t => t.IdUser).HasColumnName("IDUSER");
             this.Property(t => t.firstName).HasColumnName("FIRSTNAME");
             this.Property(t => t.lastName).HasColumnName("LASTNAME");
-            this.Property(t => t.userName).HasColumnName("USERNAME");
             this.Property(t => t.facebookId).HasColumnName("FACEBOOKID");
             this.Property(t => t.zipCode).HasColumnName("ZIPCODE");
             this.Property(t => t.email).HasColumnName("EMAIL");
-            this.Property(t => t.password).HasColumnName("PASSWORD");
             this.Property(t => t.accesstoken).HasColumnName("ACCESSTOKEN");
         }
     }

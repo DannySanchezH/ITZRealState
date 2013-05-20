@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>ITZRealState</title>
+    <meta name="casas en venta" content="casas en venta al mejor precio" />
+    <meta name="keywords" content="casas en venta ITZREALSTATE" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
+    <!-- modernizr enables HTML5 elements and feature detects -->
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script type="text/javascript" src="Scripts/Shared/modernizr-1.5.min.js"></script>
+    <script type="text/javascript" src="Scripts/Shared/script.js"></script>
+
+    <div id="menu_container">
+        <ul class="sf-menu edgeLoad-EDGE-1562389" id="nav">
+            <li id="txt" class="edgeLoad-EDGE-1562389"><a href="/Dashboard" class="edgeLoad-EDGE-1562389" ">Log In</a></li>
+        </ul>
+    </div>
+
+</head>
+
+<body>
+    <div id="main">
+        <header>
+            <div id="logo">
+                <div id="logo_text">
+                    <!-- class="logo_colour", allows you to change the colour of the text -->
+
+                    <h1><a href="index.html">ITZ<span class="color del ogo?">RealState</span></a></h1>
+                    <h4>
+                        <pre>WHERE EVER YOU ARE...FIND YOU PLACE</pre>
+                    </h4>
+
+                </div>
+            </div>
+        </header>
+    </div>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    
+}
