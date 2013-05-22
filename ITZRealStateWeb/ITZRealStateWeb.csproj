@@ -172,6 +172,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BaseClient.cs" />
+    <Compile Include="Helpers\CookieHelpers.cs" />
+    <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Amenitie.cs" />
     <Compile Include="Models\Listing.cs" />
@@ -263,7 +265,7 @@
     <Content Include="Scripts\Shared\jquery.sooperfish.js" />
     <Content Include="Scripts\Shared\jslogs.js" />
     <Content Include="Scripts\Shared\modernizr-1.5.min.js" />
-    <Content Include="Scripts\Shared\script.js" />
+    <Content Include="Scripts\Shared\_Layout.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

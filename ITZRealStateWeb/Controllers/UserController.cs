@@ -33,7 +33,7 @@ namespace ITZRealStateWeb.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         //
@@ -57,28 +57,35 @@ namespace ITZRealStateWeb.Controllers
         //
         // GET: /User/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
             BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
             User user = client.Get<User>(id);
-            return View(User);
+            return PartialView(user);
         }
 
         //
         // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditUserAjax(User model)
         {
-            try
+            if (ModelState.IsValid == true)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    BaseClient client = new BaseClient(baseApiUrl, "User", "PutUser");
+                    string result = client.Put<User>(model.IdUser.ToString(), model);
+                    return Json(new { success = true });
+                }
+                catch
+                {
+                    return Json(new { success = false, message = "There was an issue with the server, please try again latter." });
+                }
             }
-            catch
+            else
             {
-                return View();
+                return Json(new { success = false, message = "Please correct all the issues." });
             }
         }
 

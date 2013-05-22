@@ -7,7 +7,7 @@ namespace ITZRealState.Models
     public class User
     {
         [Key]
-        public long IdUser { get; set; }
+        public int IdUser { get; set; }
         public string firstName { get; set; }
         public string lastName{ get; set; }
         public string facebookId { get; set; }

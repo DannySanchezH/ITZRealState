@@ -1,11 +1,6 @@
 ﻿@model ITZRealStateWeb.Models.User
 
-@{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
-}
-
-<h2>Create</h2>
+<h2>Please, you need to fill this</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -53,9 +48,4 @@
         @Html.HiddenFor(model => model.facebookId)
         @Html.HiddenFor(model => model.accesstoken)
     </fieldset>
-}
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }

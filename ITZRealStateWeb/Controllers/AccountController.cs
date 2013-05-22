@@ -15,7 +15,7 @@ namespace ITZRealStateWeb.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class AccountController : BaseWebController
     {
         //
         // GET: /Account/Login
@@ -81,7 +81,7 @@ namespace ITZRealStateWeb.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Dashboard");
+                    return RedirectToAction("Index", "Dashboard",model);
                 }
                 catch (MembershipCreateUserException e)
                 {

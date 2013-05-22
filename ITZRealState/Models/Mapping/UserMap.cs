@@ -19,10 +19,7 @@ namespace ITZRealState.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
-
-
             this.Property(t => t.facebookId)
-                .IsRequired()
                 .HasMaxLength(250);
 
             this.Property(t => t.zipCode)
@@ -34,7 +31,6 @@ namespace ITZRealState.Models.Mapping
 
 
             this.Property(t => t.accesstoken)
-                .IsRequired()
                 .HasMaxLength(250);
 
             // Table & Column Mappings

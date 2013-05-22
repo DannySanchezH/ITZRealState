@@ -83,5 +83,6 @@ namespace ITZRealStateWeb.Controllers
         {
             get { return ConfigurationManager.AppSettings["ApiUrl"]; }
         }
+
     }
 }

@@ -9,7 +9,7 @@ namespace ITZRealStateWeb.Models
     public class User
     {
         [Display(Name = "User Id")]
-        public long IdUser { get; set; }
+        public int IdUser { get; set; }
 
         [Required]
         [Display(Name = "First name")]

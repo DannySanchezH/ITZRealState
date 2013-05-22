@@ -36,7 +36,7 @@ namespace ITZRealState.Controllers
         }
 
         // PUT api/User/5
-        public HttpResponseMessage PutUser(long id, User user)
+        public HttpResponseMessage PutUser(int id, User user)
         {
             if (ModelState.IsValid && id == user.IdUser)
             {
