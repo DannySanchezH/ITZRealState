@@ -22,9 +22,9 @@ namespace ITZRealStateWeb
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //OAuthWebSecurity.RegisterFacebookClient(
-            //    appId: "",
-            //    appSecret: "");
+            OAuthWebSecurity.RegisterFacebookClient(
+                appId: "106799302860089",
+                appSecret: "becf5f7107585f174a9c2c92296ee697");
 
             //OAuthWebSecurity.RegisterGoogleClient();
         }
