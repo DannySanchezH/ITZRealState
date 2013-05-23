@@ -227,7 +227,7 @@ nav {
 
 
 .sidebar { 
-  float: right;
+  float: left;
   width: 350px;
   margin: 0 0 17px 0;
   background: #5c3e32;
@@ -237,7 +237,6 @@ nav {
   border-radius: 0px 0px 0px 0px;
   padding: 0 15px 5px 13px;
   opacity: 0.8;
-  visible: 
 }
 
 .sidebar h2, .content h1 { 
