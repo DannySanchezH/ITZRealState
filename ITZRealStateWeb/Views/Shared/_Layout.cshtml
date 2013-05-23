@@ -7,9 +7,8 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script type="text/javascript" src="Scripts/Shared/modernizr-1.5.min.js"></script>
     @Styles.Render("~/Content/Dash")
-    <!-- modernizr enables HTML5 elements and feature detects -->  
+    <!-- modernizr enables HTML5 elements and feature detects -->
 </head>
-
 <body id="main">
     <div id="main">
         <header>
@@ -22,9 +21,16 @@
                         <ul class="sf-menu edgeLoad-EDGE-1562389" id="nav">
                             <span class="left">
                                 <img src="~/images/dashboard/perfil.jpg" alt="example graphic" id="imagePorfile" /></span>
-                            <li id="txt" class="edgeLoad-EDGE-1562389"><a id="login" href="#" class="edgeLoad-EDGE-1562389">Hi! My Name</a>
+                            <li id="txt" class="edgeLoad-EDGE-1562389"><a id="login" href="#" class="edgeLoad-EDGE-1562389">Hi! @ViewBag.user</a>
                                 <ul>
-                                    <li><a href="#" onclick="EditUserjs();">Account</a></li>
+                                  @*  @if (ViewBag.LogedUser = null)
+                                    {
+                                        <li><a href="#" onclick="CreateUserjs(@(ViewBag.id));">Account</a></li>
+                                    }
+                                    else { 
+                                    *@<li><a href="#" onclick="EditUserjs(@(ViewBag.id));">Account</a></li>
+                                    @*}*@
+                                        
                                     <li>
                                         <span class="logout-btn">
                                             @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -44,14 +50,14 @@
         </header>
     </div>
     <nav>
-        <div id="menu_container" class= "left">
+        <div id="menu_container" class="left">
             <ul class="sf-menu" id="nav">
-            <li><a href="examples.html">Sale Agents</a></li>
-            <li><a href="#">Listings</a></li>
-			<li><a href="page.html">favorites</a></li>  		
-          </ul>
+                <li><a href="#">Listings</a></li>
+                <li><a href="#">Sale Agents</a></li>
+                <li><a href="#" onclick="DesireList();">favorites</a></li>
+            </ul>
         </div>
-      </nav>
+    </nav>
     <div id="site_content">
     </div>
 

@@ -57,10 +57,16 @@ namespace ITZRealStateWeb.Controllers
         //
         // GET: /User/Edit/5
 
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
             BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
-            User user = client.Get<User>(id);
+            string idu = id.ToString();
+            User user = client.Get<User>(idu);
+            if (user == null)
+            {
+                user = new User();
+                user.IdUser = id;
+            }
             return PartialView(user);
         }
 
@@ -70,11 +76,19 @@ namespace ITZRealStateWeb.Controllers
         [HttpPost]
         public ActionResult EditUserAjax(User model)
         {
+            BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
+            User user = client.Get<User>(model.IdUser.ToString()); 
             if (ModelState.IsValid == true)
             {
+            if (user==null)
+            {
+                client = new BaseClient(baseApiUrl, "User", "PostUser");
+                string result = client.Post<User>(model);
+                return Json(new { success = true });
+            }
                 try
                 {
-                    BaseClient client = new BaseClient(baseApiUrl, "User", "PutUser");
+                    client = new BaseClient(baseApiUrl, "User", "PutUser");
                     string result = client.Put<User>(model.IdUser.ToString(), model);
                     return Json(new { success = true });
                 }

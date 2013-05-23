@@ -55,22 +55,9 @@ namespace ITZRealStateWeb.Controllers
             {
                     if ((WebSecurity.IsAuthenticated) && (actionName != "LogOff"))
                     {
-                        if (User != null)
-                        {
-                            //ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
-                            //ViewBag.IBONum = ibo.IBONum;
-                            //ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
-                            //ViewBag.MenuItems = menuItems;
-                            //ViewBag.AlertItems = listAlerts;
-                            //ViewBag.FollowupsCount = Followups.Count;
-                        }
-                        else
-                        {
-                            if ((actionName != "Create") && (controllerName != "User"))
-                            {
-                                filterContext.Result = RedirectToAction("Create","User");
-                            }
-                        }
+                        ViewBag.user = user;
+                        ViewBag.id = userid;
+                        ViewBag.LogedUser = logUser;
                     }
                 }
             catch { }
@@ -84,5 +71,38 @@ namespace ITZRealStateWeb.Controllers
             get { return ConfigurationManager.AppSettings["ApiUrl"]; }
         }
 
+        public string user
+        {
+            get
+            {
+              if (!(WebSecurity.Initialized)) {
+                WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+              }
+                string user = WebSecurity.CurrentUserName.ToString();
+                return user;
+            }
+        }
+        public string userid
+        {
+            get
+            {
+                if (!(WebSecurity.Initialized))
+                {
+                    WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                }
+                string user = WebSecurity.CurrentUserId.ToString();
+                return user;
+            }
+        }
+
+        public User logUser
+        {
+            get
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
+                User user = client.Get<User>(userid);
+                return user;
+            }
+        }
     }
 }

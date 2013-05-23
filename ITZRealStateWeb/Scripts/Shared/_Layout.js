@@ -1,5 +1,5 @@
-function EditUserjs() {
-    $("#site_content").hide("slow").load('/User/Edit/1').show("slow");
+function EditUserjs(id) {
+    $("#site_content").hide("slow").load('/User/Edit/'+id).show("slow");
 }
 
 function CancelEditU() {
@@ -12,4 +12,12 @@ function submitEdit(frm) {
         document.location.reload(true);
     });
     return false;
+}
+
+function DesireList() {
+    $("#site_content").hide("slow").load('/Desire').show("slow");
+}
+
+function EditUserjs(id) {
+    $("#site_content").hide("slow").load('/User/Edit/' + id).show("slow");
 }

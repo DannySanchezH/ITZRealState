@@ -2,6 +2,7 @@
 
 namespace ITZRealState.Models.Mapping
 {
+    
     public class SalesAgentMap : EntityTypeConfiguration<SalesAgent>
 
     {

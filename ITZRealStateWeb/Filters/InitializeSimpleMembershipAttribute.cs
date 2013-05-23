@@ -37,8 +37,10 @@ namespace ITZRealStateWeb.Filters
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
                     }
-
-                    WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    if (!(WebSecurity.Initialized))
+                    {
+                        WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    }
                 }
                 catch (Exception ex)
                 {

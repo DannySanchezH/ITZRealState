@@ -8,7 +8,8 @@ namespace ITZRealState.Models.Mapping
         public UserMap()
         {
             // Primary Key
-            this.HasKey(t => t.IdUser);
+            this.Property(t => t.IdUser)
+                .IsRequired();
 
             // Properties
             this.Property(t => t.firstName)

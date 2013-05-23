@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AmenitieController.cs" />
     <Compile Include="Controllers\BaseWebController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DesireController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -176,6 +177,8 @@
     <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Amenitie.cs" />
+    <Compile Include="Models\SalesAgent.cs" />
+    <Compile Include="Models\Desire.cs" />
     <Compile Include="Models\Listing.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -311,6 +314,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Desire\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

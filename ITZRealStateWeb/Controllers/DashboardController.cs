@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ITZRealStateWeb.Models;
+using WebMatrix.WebData;
 
 namespace ITZRealStateWeb.Controllers
 {
@@ -13,7 +14,7 @@ namespace ITZRealStateWeb.Controllers
         //
         // GET: /Dashboard/
 
-        public ActionResult Index(RegisterModel userprof)
+        public ActionResult Index()
         {
             return View();
         } 

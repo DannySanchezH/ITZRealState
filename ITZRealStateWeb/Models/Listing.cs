@@ -8,7 +8,7 @@ namespace ITZRealStateWeb.Models
 {
     public class Listing
     {
-        [Display(Name = "Amenitie Id")]
+        [Display(Name = "Listing Id")]
         public long IdListing { get; set; }
         
         [Required]
