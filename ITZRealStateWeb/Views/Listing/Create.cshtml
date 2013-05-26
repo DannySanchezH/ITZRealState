@@ -1,0 +1,108 @@
+﻿@model ITZRealStateWeb.Models.Listing
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Listing</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdListing)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdListing)
+            @Html.ValidationMessageFor(model => model.IdListing)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.street)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.street)
+            @Html.ValidationMessageFor(model => model.street)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.number)
+            @Html.ValidationMessageFor(model => model.number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.colony)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.colony)
+            @Html.ValidationMessageFor(model => model.colony)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.lotSize)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.lotSize)
+            @Html.ValidationMessageFor(model => model.lotSize)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.constSize)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.constSize)
+            @Html.ValidationMessageFor(model => model.constSize)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.price)
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdUser)
+            @Html.ValidationMessageFor(model => model.IdUser)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sold)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sold)
+            @Html.ValidationMessageFor(model => model.sold)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zipcode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.zipcode)
+            @Html.ValidationMessageFor(model => model.zipcode)
+        </div>
+
+        <iframe width="425" height="350" src="http://maps.google.com.mx/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=&amp;sll=22.763688,-102.583234&amp;sspn=0.089751,0.169086&amp;ie=UTF8&amp;t=m&amp;ll=22.763677,-102.583294&amp;spn=0.075979,0.109863&amp;z=13&amp;output=embed"></iframe>
+        <br />
+        <small>
+           
+        </small>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

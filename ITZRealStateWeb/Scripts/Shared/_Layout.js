@@ -21,3 +21,11 @@ function DesireList() {
 function EditUserjs(id) {
     $("#site_content").hide("slow").load('/User/Edit/' + id).show("slow");
 }
+
+function CreateListing() {
+    $("#site_content").hide("slow").load('/Listing/Create').show("slow");
+}
+
+function Listings() {
+    $("#site_content").hide("slow").load('/Listing').show("slow");
+}

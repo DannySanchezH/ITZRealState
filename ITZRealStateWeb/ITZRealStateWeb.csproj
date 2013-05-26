@@ -167,6 +167,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DesireController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,6 +263,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\Listing\Index.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\Shared\jquery.easing-sooper.js" />
     <Content Include="Scripts\Shared\jquery.js" />
@@ -269,6 +271,7 @@
     <Content Include="Scripts\Shared\jslogs.js" />
     <Content Include="Scripts\Shared\modernizr-1.5.min.js" />
     <Content Include="Scripts\Shared\_Layout.js" />
+    <Content Include="Scripts\User\Index.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -315,9 +318,12 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Desire\Index.cshtml" />
+    <Content Include="Views\Listing\Create.cshtml" />
+    <Content Include="Views\Listing\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\Desire\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

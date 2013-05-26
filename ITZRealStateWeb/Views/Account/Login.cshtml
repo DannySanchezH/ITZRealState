@@ -1,83 +1,82 @@
 ﻿@model ITZRealStateWeb.Models.LoginModel
 
 
-<H1>@{
-    ViewBag.Title = "Login"; 
+<h1>@{
+    ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
-} </H1>
+}</h1>
 
 <head>
-  <title>itzrealstate</title>
-  <meta name="description" content="website description" />
-  <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
-  <!-- modernizr enables HTML5 elements and feature detects -->
-  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+    <title>itzrealstate</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+    <!-- modernizr enables HTML5 elements and feature detects -->
+    <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
 </head>
 
 
 <div id="centro">
     <div id="login-box" class="sidebar">
-<hgroup class="title">
-    <h2>@ViewBag.Title.</h2>
-</hgroup>
+        <hgroup class="title">
+            <h2>@ViewBag.Title.</h2>
+        </hgroup>
 
 
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    <div class= "form_login" id= "esp">
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form_login" id="esp">
                 <div id="login-box-name" class="form_settings">
-                 @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName) 
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
 
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-                    </div>
-        </div>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
                     
 
-     <div class="btn">
-     
-                      @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            <div class="">
 
-    </div>
-    
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
 
-                <span class="login-box-options">
+            </div>
+            <span class="login-box-options">
                 @Html.CheckBoxFor(m => m.RememberMe)
-                                        </span>
+            </span>
             
     
-        <input type="submit" value="Iniciar sesión" class= "btn"/>
-       <div class="btn"> @Html.ActionLink("Register", "Register") </div>
+            <input type="submit" value="Iniciar sesión" class="btn" />
+            <div class="btn">@Html.ActionLink("Register", "Register") </div>
     
-}
-       
-        
+        }
 
 
 
 
 
-<br>
-<br>
+
+
+        <br>
+        <br>
         <div class="login-box2">
-<section class="social" id="socialLoginForm">
-    <h1>Usar otro servicio para iniciar sesión.</h1>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
+            <section class="social" id="socialLoginForm">
+                <h1>Usar otro servicio para iniciar sesión.</h1>
+                @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
 
+        </div>
     </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
 </div>
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
-    </div>
 
