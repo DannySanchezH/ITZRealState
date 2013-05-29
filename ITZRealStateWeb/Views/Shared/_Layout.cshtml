@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+﻿
 <html>
 <head>
     <title>ITZRealState - Dashboard </title>
@@ -6,6 +6,9 @@
     <meta name="keywords" content="website keywords, website keywords" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script type="text/javascript" src="Scripts/Shared/modernizr-1.5.min.js"></script>
+    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+
     @Styles.Render("~/Content/Dash")
     <!-- modernizr enables HTML5 elements and feature detects -->
 </head>
@@ -23,13 +26,8 @@
                                 <img src="~/images/dashboard/perfil.jpg" alt="example graphic" id="imagePorfile" /></span>
                             <li id="txt" class="edgeLoad-EDGE-1562389"><a id="login" href="#" class="edgeLoad-EDGE-1562389">Hi! @ViewBag.user</a>
                                 <ul>
-                                  @*  @if (ViewBag.LogedUser = null)
-                                    {
-                                        <li><a href="#" onclick="CreateUserjs(@(ViewBag.id));">Account</a></li>
-                                    }
-                                    else { 
-                                    *@<li><a href="#" onclick="EditUserjs(@(ViewBag.id));">Account</a></li>
-                                    @*}*@
+                                    <li><a href="#" onclick="EditUserjs(@(ViewBag.id));">Account</a></li>
+                                    
                                         
                                     <li>
                                         <span class="logout-btn">
@@ -67,8 +65,13 @@
             @RenderBody()
         </section>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/Shared/_layout.js")
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/noty")
+	@Scripts.Render("~/bundles/dropdown")
+	@Scripts.Render("~/Scripts/Shared/_layout.js")
+	@Scripts.Render("~/Scripts/Tickets/_layout.js")
+	@RenderSection("scripts", required: false)
 </body>
 </html>
