@@ -9,7 +9,7 @@ namespace ITZRealStateWeb.Models
     public class Listing
     {
         [Display(Name = "Listing Id")]
-        public long IdListing { get; set; }
+        public int IdListing { get; set; }
         
         [Required]
         [Display(Name = "Street")]
@@ -37,7 +37,7 @@ namespace ITZRealStateWeb.Models
 
         [Required]
         [Display(Name = "SaleAgent")]
-        public long IdUser { get; set;}
+        public int IdUser { get; set;}
 
         [Required]
         [Display(Name = "Sold")]

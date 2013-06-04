@@ -79,7 +79,17 @@ namespace ITZRealStateWeb.Controllers
                 // Intento de registrar al usuario
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    
+                    
+                    if (model.salesagentopc)
+                    {
+                        WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, ZipCode = model.Zipcode, phone = model.phone, cellular = model.cellular });
+                        Roles.AddUserToRole(model.UserName, "SalesAgent");
+                    }
+                    else
+                    {
+                        WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, ZipCode = model.Zipcode });
+                    }
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Dashboard");
                 }

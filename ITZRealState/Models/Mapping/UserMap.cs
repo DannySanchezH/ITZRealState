@@ -3,46 +3,48 @@
 namespace ITZRealState.Models.Mapping
 {
     public class UserMap : EntityTypeConfiguration<User>
-
     {
         public UserMap()
         {
             // Primary Key
-            this.Property(t => t.IdUser)
-                .IsRequired();
+            this.HasKey(t => t.UserId);
 
             // Properties
-            this.Property(t => t.firstName)
+            this.Property(t => t.UserName)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(20);
 
-            this.Property(t => t.lastName)
+            this.Property(t => t.FirstName)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(20);
 
-            this.Property(t => t.facebookId)
-                .HasMaxLength(250);
+            this.Property(t => t.LastName)
+                .IsRequired()
+                .HasMaxLength(20);
 
-            this.Property(t => t.zipCode)
+            this.Property(t => t.Zipcode)
                 .IsRequired();
 
             this.Property(t => t.email)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(40);
 
+            this.Property(t => t.phone)
+                .HasMaxLength(20);
 
-            this.Property(t => t.accesstoken)
-                .HasMaxLength(250);
+            this.Property(t => t.cellular)
+                .HasMaxLength(20);
 
             // Table & Column Mappings
-            this.ToTable("USER");
-            this.Property(t => t.IdUser).HasColumnName("IDUSER");
-            this.Property(t => t.firstName).HasColumnName("FIRSTNAME");
-            this.Property(t => t.lastName).HasColumnName("LASTNAME");
-            this.Property(t => t.facebookId).HasColumnName("FACEBOOKID");
-            this.Property(t => t.zipCode).HasColumnName("ZIPCODE");
-            this.Property(t => t.email).HasColumnName("EMAIL");
-            this.Property(t => t.accesstoken).HasColumnName("ACCESSTOKEN");
+            this.ToTable("UserProfile");
+            this.Property(t => t.UserId).HasColumnName("UserId");
+            this.Property(t => t.UserName).HasColumnName("UserName");
+            this.Property(t => t.FirstName).HasColumnName("FirstName");
+            this.Property(t => t.LastName).HasColumnName("LastName");
+            this.Property(t => t.Zipcode).HasColumnName("Zipcode");
+            this.Property(t => t.email).HasColumnName("Email");
+            this.Property(t => t.phone).HasColumnName("phone");
+            this.Property(t => t.cellular).HasColumnName("cellular");
         }
     }
 }

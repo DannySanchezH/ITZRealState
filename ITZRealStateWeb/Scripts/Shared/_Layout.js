@@ -14,8 +14,8 @@ function submitEdit(frm) {
     return false;
 }
 
-function DesireList() {
-    $("#site_content").hide("slow").load('/Desire').show("slow");
+function DesireList(id) {
+    $("#site_content").hide("slow").load('/Desire/Index/' + id).show("slow");
 }
 
 function EditUserjs(id) {
@@ -28,4 +28,8 @@ function CreateListing() {
 
 function Listings() {
     $("#site_content").hide("slow").load('/Listing').show("slow");
+}
+
+function Agents() {
+    $("#site_content").load('/SalesAgent').show("slow");
 }

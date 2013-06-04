@@ -23,6 +23,7 @@ namespace ITZRealState.Controllers
             return db.Desires.AsEnumerable();
         }
 
+        
         // GET api/Desire/5
         public Desire GetDesire(long id)
         {
@@ -33,6 +34,19 @@ namespace ITZRealState.Controllers
             }
 
             return desire;
+        }
+
+        public IEnumerable<Listing> GetMyDesires(long id)
+        {
+            List<int> _desires = new List<int>();
+            _desires=(from desire in db.Desires
+                          where desire.IdUser==id
+                          select desire.IdListing).ToList();
+            List<Listing> listing = new List<Listing>();
+            listing = (from _listing in db.Listings
+                       where _desires.Contains(_listing.IdListing)
+                       select _listing).ToList();
+            return listing;
         }
 
         // PUT api/Desire/5

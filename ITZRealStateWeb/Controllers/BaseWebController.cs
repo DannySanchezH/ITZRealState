@@ -7,12 +7,12 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Web.Mvc;
 using WebMatrix.WebData;
+using System.Web.Security;
 
 namespace ITZRealStateWeb.Controllers
 {
     public class BaseWebController : Controller
     {
-
         public BaseWebController()
         {
             if (WebSecurity.Initialized == false)
@@ -20,7 +20,7 @@ namespace ITZRealStateWeb.Controllers
                 SimpleMembershipInitializer();
             }
         }
-
+    
         public bool SimpleMembershipInitializer()
         {
             Database.SetInitializer<UsersContext>(null);
@@ -33,7 +33,14 @@ namespace ITZRealStateWeb.Controllers
                         ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                     }
                 }
-                //WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                if (!(WebSecurity.Initialized))
+                {
+                    WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                }
+                if (!Roles.RoleExists("Administrator"))
+                    Roles.CreateRole("Administrator");
+                if (!Roles.RoleExists("SalesAgent"))
+                    Roles.CreateRole("SalesAgent");
                 return true;
             }
             catch (Exception ex)
@@ -57,7 +64,6 @@ namespace ITZRealStateWeb.Controllers
                     {
                         ViewBag.user = user;
                         ViewBag.id = userid;
-                        ViewBag.LogedUser = logUser;
                     }
                 }
             catch { }
@@ -95,14 +101,5 @@ namespace ITZRealStateWeb.Controllers
             }
         }
 
-        public User logUser
-        {
-            get
-            {
-                BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
-                User user = client.Get<User>(userid);
-                return user;
-            }
-        }
     }
 }

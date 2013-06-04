@@ -1,38 +1,84 @@
-﻿@model ITZRealStateWeb.Models.RegisterModel
-@{
-    ViewBag.Title = "Registrarse";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
-}
+﻿<head>
+    <title>itzrealstate</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+    <!-- modernizr enables HTML5 elements and feature detects -->
+    <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+</head>
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Cree una cuenta nueva.</h2>
-</hgroup>
+<div id="centro">
+    <div id="login-box" class="sidebar">
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+        <h2>
+            @model ITZRealStateWeb.Models.RegisterModel
+            @{
+                ViewBag.Title = "Register";
+                Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+            }
+        </h2>
 
-    <fieldset>
-        <legend>Formulario de registro</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-        </ol>
-        <input type="submit" value="Registrarse" />
-    </fieldset>
-}
+        <hgroup class="title">
+            <h2>Create Account</h2>
+        </hgroup>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <div class="form_login" id="esp">
+                <span id="login-box-name" class="form_settings">
+
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+
+                    @Html.LabelFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName)
+
+                    @Html.LabelFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName)
+                    <br />
+                    @Html.LabelFor(m => m.Email)
+                    <br />
+                    @Html.TextBoxFor(m => m.Email)
+
+                    @Html.LabelFor(m => m.Zipcode)
+                    @Html.TextBoxFor(m => m.Zipcode)
+
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    <br />
+                    <br />
+                    <span class="login-box-options" onclick="ActivateFields();">
+                        @Html.CheckBoxFor(m => m.salesagentopc)
+                    </span>
+                    @Html.LabelFor(m => m.salesagentopc, new { @class = "checkbox" })
+                    <br />
+                    <br />
+                    <div id="AgentField" hidden="hidden">
+                        @Html.LabelFor(m => m.phone)
+                        @Html.TextBoxFor(m => m.phone)
+
+                        @Html.LabelFor(m => m.cellular)
+                        @Html.TextBoxFor(m => m.cellular)
+                    </div>
+            </div>
+
+
+            <input type="submit" value="Register" class="btn" />
+
+        }
+
+    </div>
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/User/Index.js")
 }

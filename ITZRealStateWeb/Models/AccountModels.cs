@@ -24,6 +24,7 @@ namespace ITZRealStateWeb.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+        [Column]
         public string UserName { get; set; }
     }
 
@@ -73,19 +74,47 @@ namespace ITZRealStateWeb.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "Nombre de usuario")]
+        [Display(Name = "UserName")]
         public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "LastName")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Your Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Zipcode")]
+        public int Zipcode { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Contraseña")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmar contraseña")]
+        [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Be a Agent")]
+        public bool salesagentopc { get; set; }
+
+        [Required]
+        [Display(Name = "Phone")]
+        public string phone { get; set; }
+
+        [Required]
+        [Display(Name = "Cellular")]
+        public string cellular { get; set; }
     }
 
     public class ExternalLogin

@@ -39,16 +39,12 @@
                     @Html.ValidationMessageFor(m => m.Password)
                 </div>
             </div>
-                    
-
-            <div class="">
-
+             <span class="login-box-options">
+                @Html.CheckBoxFor(m => m.RememberMe)
+            </span>       
                 @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
 
-            </div>
-            <span class="login-box-options">
-                @Html.CheckBoxFor(m => m.RememberMe)
-            </span>
+            <br>
             
     
             <input type="submit" value="Iniciar sesión" class="btn" />
@@ -64,11 +60,10 @@
 
         <br>
         <br>
-        <div class="login-box2">
-            <section class="social" id="socialLoginForm">
-                <h1>Usar otro servicio para iniciar sesión.</h1>
+        <div class="">
+
                 @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
+
 
         </div>
     </div>

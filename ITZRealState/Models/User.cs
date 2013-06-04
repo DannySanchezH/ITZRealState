@@ -7,12 +7,13 @@ namespace ITZRealState.Models
     public class User
     {
         [Key]
-        public int IdUser { get; set; }
-        public string firstName { get; set; }
-        public string lastName{ get; set; }
-        public string facebookId { get; set; }
-        public int zipCode { get; set;}
+        public int UserId { get; set; }
+        public string UserName{ get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Zipcode { get; set; }
         public string email { get; set; }
-        public string accesstoken { get; set; }
+        public string phone { get; set; }
+        public string cellular { get; set; }
     }
 }

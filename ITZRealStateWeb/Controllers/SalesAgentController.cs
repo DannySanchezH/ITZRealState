@@ -1,29 +1,27 @@
-﻿using System;
+﻿using ITZRealStateWeb.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ITZRealStateWeb.Models;
-using ITZRealStateWeb.Helpers;
 
 namespace ITZRealStateWeb.Controllers
 {
-    public class DesireController : BaseWebController
+    public class SalesAgentController : BaseWebController
     {
         //
-        // GET: /Desire/
+        // GET: /SalesAgent/
 
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            BaseClient client = new BaseClient(baseApiUrl, "Desire", "GetMyDesires");
-            List<Listing> listings = client.Get<List<Listing>>(id.ToString());
-            return PartialView(listings);
+            BaseClient client = new BaseClient(baseApiUrl, "SalesAgent", "GetSalesAgents");
+            List<SalesAgent> agents = client.Get<List<SalesAgent>>();
+            return PartialView(agents);
         }
 
-        
-
         //
-        // GET: /Desire/Details/5
+        // GET: /SalesAgent/Details/5
 
         public ActionResult Details(int id)
         {
@@ -31,7 +29,7 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // GET: /Desire/Create
+        // GET: /SalesAgent/Create
 
         public ActionResult Create()
         {
@@ -39,7 +37,7 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // POST: /Desire/Create
+        // POST: /SalesAgent/Create
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -57,7 +55,7 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // GET: /Desire/Edit/5
+        // GET: /SalesAgent/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -65,7 +63,7 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // POST: /Desire/Edit/5
+        // POST: /SalesAgent/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -83,26 +81,15 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // GET: /Desire/Delete/5
+        // GET: /SalesAgent/Delete/5
 
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        public ActionResult DeleteDesireAjax(string idL,string idU)
-        {
-            try
-            {
-                BaseClient client = new BaseClient(baseApiUrl, "Books", "DeleteBook");
-                string result = client.Delete(idL);
-                return Json(new { success = true });
-            }
-            catch
-            {
-                return Json(new { success = false });
-            }
-        }
+        //
+        // POST: /SalesAgent/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

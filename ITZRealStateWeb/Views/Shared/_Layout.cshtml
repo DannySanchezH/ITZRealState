@@ -51,8 +51,8 @@
         <div id="menu_container" class="left">
             <ul class="sf-menu" id="nav">
                 <li><a href="#" onclick="Listings();">Listings</a></li>
-                <li><a href="#">Sale Agents</a></li>
-                <li><a href="#" onclick="DesireList();">Favorites</a></li>
+                <li><a href="#" onclick="Agents();">Sale Agents</a></li>
+                <li><a href="#" onclick="DesireList(@(ViewBag.id));">Favorites</a></li>
             </ul>
         </div>
     </nav>
@@ -70,8 +70,7 @@
 	@Scripts.Render("~/bundles/jqueryval")
 	@Scripts.Render("~/bundles/noty")
 	@Scripts.Render("~/bundles/dropdown")
-	@Scripts.Render("~/Scripts/Shared/_layout.js")
-	@Scripts.Render("~/Scripts/Tickets/_layout.js")
+	@Scripts.Render("~/Scripts/Shared/_Layout.js")
 	@RenderSection("scripts", required: false)
 </body>
 </html>

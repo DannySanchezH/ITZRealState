@@ -24,7 +24,7 @@ namespace ITZRealState.Controllers
         }
 
         // GET api/User/5
-        public User GetUser(long id)
+        public User GetUser(int id)
         {
             User user = db.Users.Find(id);
             if (user == null)
@@ -38,7 +38,7 @@ namespace ITZRealState.Controllers
         // PUT api/User/5
         public HttpResponseMessage PutUser(int id, User user)
         {
-            if (ModelState.IsValid && id == user.IdUser)
+            if (ModelState.IsValid && id == user.UserId)
             {
                 db.Entry(user).State = EntityState.Modified;
 
@@ -64,11 +64,11 @@ namespace ITZRealState.Controllers
         {
             if (ModelState.IsValid)
             {
-                    db.Users.Add(user);
-                    db.SaveChanges();
+                db.Users.Add(user);
+                db.SaveChanges();
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, user);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = user.IdUser }));
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = user.UserId }));
                 return response;
             }
             else
@@ -78,7 +78,7 @@ namespace ITZRealState.Controllers
         }
 
         // DELETE api/User/5
-        public HttpResponseMessage DeleteUser(long id)
+        public HttpResponseMessage DeleteUser(int id)
         {
             User user = db.Users.Find(id);
             if (user == null)

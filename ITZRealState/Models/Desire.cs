@@ -8,6 +8,6 @@ namespace ITZRealState.Models
     {
         [Key]
         public int IdUser { get; set; }
-        public long IdListing { get; set; }
+        public int IdListing { get; set; }
     }
 }

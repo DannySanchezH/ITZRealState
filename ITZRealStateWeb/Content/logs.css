@@ -1,6 +1,6 @@
 #centro{
 
-padding: 50px 0 0 450px;
+padding: 10px 0 0 450px;
 
 
 
@@ -9,14 +9,11 @@ padding: 50px 0 0 450px;
 #esp{
 
 padding: 0 10 100 0px;
-
-
-
 }
 
 #login-box {
-	width:373px;
-	height: 492px;
+	width:300px;
+	height: auto;
 	padding: 10px 76px 0 76px;
 	color: #E2E03E;
 	font: 16px kalinga, Helvetica, sans-serif;
@@ -47,7 +44,6 @@ color:white;
 	float: left;
 	display:inline;
 	width:80px;
-	text-align: right;
 	padding: 2px 1px 0 0;
 	margin: 2px 0 19px 0;
 	

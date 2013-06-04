@@ -8,11 +8,13 @@ namespace ITZRealStateWeb.Models
 {
     public class SalesAgent
     {
-        [Display(Name = "Amenitie Id")]
-        public string IdAmenitie { get; set; }
+        [Display(Name = "SaleAgent ID")]
+        public long IdUser { get; set; }
 
-        [Required]
-        [Display(Name = "Amenitie Name")]
-        public string name { get; set; }
+        [Display(Name = "Phone Number ")]
+        public string phone { get; set; }
+
+        [Display(Name = "Cellular Number")]
+        public string cellular { get; set; }
     }
 }
