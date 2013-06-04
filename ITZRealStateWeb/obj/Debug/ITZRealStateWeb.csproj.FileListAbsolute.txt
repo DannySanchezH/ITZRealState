@@ -248,9 +248,6 @@ C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\WebMatrix.WebD
 C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache
 C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.dll
 C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.pdb
-<<<<<<< HEAD
-C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache
-=======
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\ITZRealStateWeb.dll
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\ITZRealStateWeb.pdb
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\Antlr3.Runtime.dll
@@ -314,4 +311,3 @@ C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\WebMatrix.WebD
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.dll
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.pdb
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache
->>>>>>> Create Listings
