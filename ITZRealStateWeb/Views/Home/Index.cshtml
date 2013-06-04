@@ -1,8 +1,10 @@
-﻿@{
+﻿<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
-<div>
+<!----><div>
     <nav>
         <div id="juer" class="sidebar2">
             <div id="sear_settings" class="form_settings">
@@ -19,7 +21,7 @@
                 </form>
                 <div id="id3">
                     <p>
-                        <button type="button" name="" value="" class="button">Search</button>
+                        <button type="button" name="" value="" class="btn">Search</button>
                     </p>
                 </div>
             </div>
@@ -99,11 +101,25 @@
 
 <p>&nbsp;</p>
 <!-- javascript at the bottom for fast page loading -->
-<script type="text/javascript" src="Scripts/Shared/jquery.js"></script>
-<script type="text/javascript" src="Scripts/Shared/jquery.easing-sooper.js"></script>
-<script type="text/javascript" src="Scripts/Shared/jquery.sooperfish.js"></script>
+@Scripts.Render("~/Scripts/Shared/jquery.js")
+@Scripts.Render("~/Scripts/Shared/jquery.easing-sooper.js")
+@Scripts.Render("~/Scripts/Shared/jquery.sooperfish.js")
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('ul.sf-menu').sooperfish();
+
+        //Limpia caja de texto
+        var valor, val2;
+        $("input").click(function () {
+            valor = $(this).attr("value");
+            $(this).attr("value", "");
+        });
+        $("input").focusout(function () {
+            val2 = $(this).attr("value");
+            if (val2 === "") {
+                $(this).attr("value", valor);
+            }
+        });
     });
 </script>

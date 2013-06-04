@@ -6,7 +6,7 @@ namespace ITZRealState.Models
 {
     public class Listing
     {
-        [Key]
+        
         public int IdListing { get; set; }
         public string street { get; set; }
         public string number { get; set; }

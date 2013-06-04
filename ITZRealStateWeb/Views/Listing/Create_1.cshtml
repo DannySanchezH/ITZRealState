@@ -4,30 +4,20 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
- <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
-
-@using (Html.BeginForm("CreateListingAjax", "Listing", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
+@using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
 
-   @* <fieldset>*@
+    <fieldset>
+        <legend>Listing</legend>
 
-        <div id="login-box"  class="">
-       <div class="form_settings" id=" centro">
-
-        <legend><h2> Listing</h2></legend>
-
-
-            <div class="editor-label">
-           
+        <div class="editor-label">
             @Html.LabelFor(model => model.IdListing)
         </div>
-
         <div class="editor-field">
             @Html.EditorFor(model => model.IdListing)
             @Html.ValidationMessageFor(model => model.IdListing)
         </div>
-         
 
         <div class="editor-label">
             @Html.LabelFor(model => model.street)
@@ -37,7 +27,6 @@
             @Html.ValidationMessageFor(model => model.street)
         </div>
 
-
         <div class="editor-label">
             @Html.LabelFor(model => model.number)
         </div>
@@ -45,7 +34,6 @@
             @Html.EditorFor(model => model.number)
             @Html.ValidationMessageFor(model => model.number)
         </div>
-
 
         <div class="editor-label">
             @Html.LabelFor(model => model.colony)
@@ -79,18 +67,20 @@
             @Html.ValidationMessageFor(model => model.price)
         </div>
 
-  
-              
         <div class="editor-label">
             @Html.LabelFor(model => model.IdUser)
         </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdUser)
+            @Html.ValidationMessageFor(model => model.IdUser)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.sold)
-               @Html.EditorFor(model => model.sold)
-            @Html.ValidationMessageFor(model => model.sold)
         </div>
         <div class="editor-field">
-         
+            @Html.EditorFor(model => model.sold)
+            @Html.ValidationMessageFor(model => model.sold)
         </div>
 
         <div class="editor-label">
@@ -101,17 +91,18 @@
             @Html.ValidationMessageFor(model => model.zipcode)
         </div>
 
-        @*@Html.HiddenFor(model => model.IdListing)
-		@Html.HiddenFor(model => model.IdUser)*@
+        <iframe width="425" height="350" src="http://maps.google.com.mx/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=&amp;sll=22.763688,-102.583234&amp;sspn=0.089751,0.169086&amp;ie=UTF8&amp;t=m&amp;ll=22.763677,-102.583294&amp;spn=0.075979,0.109863&amp;z=13&amp;output=embed"></iframe>
+        <br />
+        <small>
+           
+        </small>
 
         <p>
-            <input id="btnCreate" class="btn" type="submit" value="Create" onclick="createListing(this.form);" />
-            <input class="btn" type="submit" value="Cancel" onclick="cancelListing();" />
+            <input type="submit" value="Create" />
         </p>
-           
-        </div>
-        </div>
-    @Scripts.Render("~/Scripts/Shared/_Layout.js")
-      
-    @*</fieldset>*@
+    </fieldset>
 }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

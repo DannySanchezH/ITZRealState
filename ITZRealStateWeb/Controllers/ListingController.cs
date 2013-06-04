@@ -12,7 +12,7 @@ namespace ITZRealStateWeb.Controllers
     {
         //
         // GET: /Listing/
-
+        
         public ActionResult Index()
         {
             BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListings");
@@ -36,22 +36,31 @@ namespace ITZRealStateWeb.Controllers
             Listing listing = new Listing();
             return PartialView(listing);
         }
+        
+      
 
         //
         // POST: /Listing/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateListingAjax(Listing model)
         {
-            try
+            if (ModelState.IsValid == true)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    BaseClient client = new BaseClient(baseApiUrl, "Listing", "PostListing");
+                    string result = client.Post<Listing>(model);
+                    return Json(model);
+                }
+                catch
+                {
+                    return Json(new { success = false });
+                }
             }
-            catch
+            else
             {
-                return View();
+                return Json(new { success = false });
             }
         }
 
@@ -60,7 +69,7 @@ namespace ITZRealStateWeb.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            return PartialView();
         }
 
         //
