@@ -128,6 +128,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Mapping\UserMap.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ITZRealStateContext.cs" />

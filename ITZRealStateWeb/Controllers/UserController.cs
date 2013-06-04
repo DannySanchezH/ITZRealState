@@ -5,19 +5,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ITZRealStateWeb.Models;
+using System.Web.Security;
 
 namespace ITZRealStateWeb.Controllers
 {
-    public class SalesAgentController : BaseWebController
+    public class UserController : BaseWebController
     {
         //
         // GET: /SalesAgent/
 
         public ActionResult Index()
         {
-            BaseClient client = new BaseClient(baseApiUrl, "SalesAgent", "GetSalesAgents");
-            List<SalesAgent> agents = client.Get<List<SalesAgent>>();
-            return PartialView(agents);
+            BaseClient client=new BaseClient(baseApiUrl, "User", "GetUsers");
+            List<User> agents = client.Get<List<User>>();
+            List<User> _agents = new List<User>();
+            foreach (User item in agents)
+            {
+                if (Roles.IsUserInRole(item.UserName, "SalesAgent"))
+                {
+                    _agents.Add(item);
+                }
+            }
+            return PartialView(_agents);
         }
 
         //

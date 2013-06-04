@@ -85,17 +85,17 @@ namespace ITZRealStateWeb.Controllers
         //
         // GET: /Desire/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, int idu)
         {
             return View();
         }
 
-        public ActionResult DeleteDesireAjax(string idL,string idU)
+        public ActionResult DeleteDesireAjax(int id,int idu)
         {
             try
             {
-                BaseClient client = new BaseClient(baseApiUrl, "Books", "DeleteBook");
-                string result = client.Delete(idL);
+                BaseClient client = new BaseClient(baseApiUrl, "Desire", "DeleteDesire");
+                //string result = client.Delete(id.ToString(),idu.ToString());
                 return Json(new { success = true });
             }
             catch

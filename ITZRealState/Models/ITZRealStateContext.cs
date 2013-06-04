@@ -24,6 +24,7 @@ namespace BusinessLMS.Models
         public DbSet<Image> Images { get; set; }
         public DbSet<Listing> Listings { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -33,9 +34,10 @@ namespace BusinessLMS.Models
             modelBuilder.Configurations.Add(new ImageMap());
             modelBuilder.Configurations.Add(new ListingMap());
             modelBuilder.Configurations.Add(new RoomMap());
+            modelBuilder.Configurations.Add(new UserMap());
         }
 
-        public DbSet<User> Users { get; set; }
+        
 
         
 

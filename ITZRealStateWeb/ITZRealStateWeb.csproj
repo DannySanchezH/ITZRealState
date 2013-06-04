@@ -168,7 +168,7 @@
     <Compile Include="Controllers\DesireController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
-    <Compile Include="Controllers\SalesAgentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -176,7 +176,7 @@
     <Compile Include="Helpers\BaseClient.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Amenitie.cs" />
-    <Compile Include="Models\SalesAgent.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Desire.cs" />
     <Compile Include="Models\Listing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -316,6 +316,7 @@
     <Content Include="Views\Listing\Index.cshtml" />
     <Content Include="Views\SalesAgent\Index.cshtml" />
     <Content Include="Views\Desire\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -248,3 +248,4 @@ C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\WebMatrix.WebD
 C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache
 C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.dll
 C:\Users\itz\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.pdb
+C:\Users\DANIELA\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache

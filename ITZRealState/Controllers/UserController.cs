@@ -35,6 +35,19 @@ namespace ITZRealState.Controllers
             return user;
         }
 
+        public User GetNameUser(string id)
+        {
+            User user = (from _user in db.Users
+                         where _user.UserName == id
+                         select _user).ToList().FirstOrDefault();
+            if (user == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return user;
+        }
+
         // PUT api/User/5
         public HttpResponseMessage PutUser(int id, User user)
         {

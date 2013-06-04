@@ -92,15 +92,19 @@ namespace ITZRealState.Controllers
         }
 
         // DELETE api/Desire/5
-        public HttpResponseMessage DeleteDesire(long id)
+        public HttpResponseMessage DeleteDesire(int id,int idu)
         {
-            Desire desire = db.Desires.Find(id);
-            if (desire == null)
+            List<Desire> _desire = new List<Desire>();
+            _desire = (from desire in db.Desires
+                        where desire.IdUser == idu & desire.IdListing == id
+                        select desire).ToList();
+            
+            if (_desire == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Desires.Remove(desire);
+            db.Desires.Remove(_desire.FirstOrDefault());
 
             try
             {
@@ -111,7 +115,7 @@ namespace ITZRealState.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, desire);
+            return Request.CreateResponse(HttpStatusCode.OK, _desire);
         }
 
         protected override void Dispose(bool disposing)

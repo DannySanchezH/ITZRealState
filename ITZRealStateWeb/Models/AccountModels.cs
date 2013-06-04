@@ -85,11 +85,9 @@ namespace ITZRealStateWeb.Models
         [Display(Name = "LastName")]
         public string LastName { get; set; }
 
-        [Required]
         [Display(Name = "Your Email")]
         public string Email { get; set; }
 
-        [Required]
         [Display(Name = "Zipcode")]
         public int Zipcode { get; set; }
 
@@ -104,15 +102,12 @@ namespace ITZRealStateWeb.Models
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
         [Display(Name = "Be a Agent")]
         public bool salesagentopc { get; set; }
 
-        [Required]
         [Display(Name = "Phone")]
         public string phone { get; set; }
 
-        [Required]
         [Display(Name = "Cellular")]
         public string cellular { get; set; }
     }

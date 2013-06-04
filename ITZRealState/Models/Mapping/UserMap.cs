@@ -22,11 +22,9 @@ namespace ITZRealState.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(20);
 
-            this.Property(t => t.Zipcode)
-                .IsRequired();
+            this.Property(t => t.Zipcode);
 
             this.Property(t => t.email)
-                .IsRequired()
                 .HasMaxLength(40);
 
             this.Property(t => t.phone)
