@@ -1,7 +1,8 @@
-﻿@model IEnumerable<ITZRealStateWeb.Models.Listing>
+﻿
+@model IEnumerable<ITZRealStateWeb.Models.Listing>
 
 <p>
-    <a href="#" onclick="CreateListing();">Create New</a>
+    <a href="#" onclick="CreateListing(@ViewBag.id);">Create New</a>
 </p>
 <table>
     <tr>
@@ -59,9 +60,10 @@
             @Html.DisplayFor(modelItem => item.zipcode)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <a href="#" onclick="editListing(@item.IdListing);">Edit</a> |
+            @Html.ActionLink("Delete", "DeleteListingAjax","Listing", new { id = item.IdListing },null)
+            
+            <!--<a href="#" onclick="deleteListing(@item.IdListing);">Delete</a>-->
         </td>
     </tr>
 }

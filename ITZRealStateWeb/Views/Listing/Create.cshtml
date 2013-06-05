@@ -4,7 +4,9 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
- <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+@Scripts.Render("~/Scripts/Shared/_Layout.js")
+ 
 
 @using (Html.BeginForm("CreateListingAjax", "Listing", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
@@ -16,18 +18,6 @@
        <div class="form_settings" id=" centro">
 
         <legend><h2> Listing</h2></legend>
-
-
-            <div class="editor-label">
-           
-            @Html.LabelFor(model => model.IdListing)
-        </div>
-
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdListing)
-            @Html.ValidationMessageFor(model => model.IdListing)
-        </div>
-         
 
         <div class="editor-label">
             @Html.LabelFor(model => model.street)
@@ -78,21 +68,7 @@
             @Html.EditorFor(model => model.price)
             @Html.ValidationMessageFor(model => model.price)
         </div>
-
-  
-              
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdUser)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.sold)
-               @Html.EditorFor(model => model.sold)
-            @Html.ValidationMessageFor(model => model.sold)
-        </div>
-        <div class="editor-field">
-         
-        </div>
-
+      
         <div class="editor-label">
             @Html.LabelFor(model => model.zipcode)
         </div>
@@ -101,17 +77,18 @@
             @Html.ValidationMessageFor(model => model.zipcode)
         </div>
 
-        @*@Html.HiddenFor(model => model.IdListing)
-		@Html.HiddenFor(model => model.IdUser)*@
+        @Html.HiddenFor(model => model.IdListing)
+		@Html.HiddenFor(model => model.IdUser)
+        @Html.HiddenFor(model => model.sold)
 
         <p>
-            <input id="btnCreate" class="btn" type="submit" value="Create" onclick="createListing(this.form);" />
-            <input class="btn" type="submit" value="Cancel" onclick="cancelListing();" />
+            <input class="btn" type="submit" value="Create" onclick="submitCreate(this.form);" />
+            <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
         </p>
            
         </div>
         </div>
-    @Scripts.Render("~/Scripts/Shared/_Layout.js")
+    
       
     @*</fieldset>*@
-}
+} 

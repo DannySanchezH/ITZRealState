@@ -4,20 +4,17 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-@using (Html.BeginForm()) {
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+
+@Scripts.Render("~/Scripts/Shared/_Layout.js")
+
+@using (Html.BeginForm("EditListingAjax", "Listing", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    @*<fieldset>*@
         <legend>Listing</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdListing)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdListing)
-            @Html.ValidationMessageFor(model => model.IdListing)
-        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.street)
@@ -90,13 +87,15 @@
             @Html.EditorFor(model => model.zipcode)
             @Html.ValidationMessageFor(model => model.zipcode)
         </div>
+    
+        @Html.HiddenFor(model => model.IdListing)
+		@*@Html.HiddenFor(model => model.IdUser)
+        @Html.HiddenFor(model => model.sold)*@
 
         <p>
-            <input type="submit" value="Save" />
+            <input class="btn" type="button" value="Update" onclick="submitEdit(this.form);" />
+            <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
         </p>
-    </fieldset>
+    @*</fieldset>*@
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

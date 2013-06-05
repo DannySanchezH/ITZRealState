@@ -215,4 +215,3 @@ C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealState\bin\es\System.Web.WebPag
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealState\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealState\obj\Debug\ITZRealState.dll
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealState\obj\Debug\ITZRealState.pdb
-C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealState\obj\Debug\ITZRealStateAPI.csprojResolveAssemblyReference.cache

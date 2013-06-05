@@ -31,9 +31,10 @@ namespace ITZRealStateWeb.Controllers
         //
         // GET: /Listing/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
             Listing listing = new Listing();
+            listing.IdUser = id;
             return PartialView(listing);
         }
         
@@ -64,54 +65,65 @@ namespace ITZRealStateWeb.Controllers
 
         //
         // GET: /Listing/Edit/5
-
+        
         public ActionResult Edit(int id)
         {
-            return PartialView();
+            BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListing");
+            Listing listing = client.Get<Listing>(id.ToString());
+            return PartialView(listing);
         }
 
         //
-        // POST: /Listing/Edit/5
+        // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditListingAjax(Listing model)
         {
-            try
+            BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListing");
+            Listing listing = client.Get<Listing>(model.IdListing.ToString());
+            if (ModelState.IsValid == true)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (user == null)
+                {
+                    client = new BaseClient(baseApiUrl, "Listing", "PostListing");
+                    string result = client.Post<Listing>(model);
+                    return Json(new { success = true });
+                }
+                try
+                {
+                    client = new BaseClient(baseApiUrl, "Listing", "PutListing");
+                    string result = client.Put<Listing>(model.IdListing.ToString(), model);
+                    return Json(new { success = true });
+                }
+                catch
+                {
+                    return Json(new { success = false, message = "There was an issue with the server, please try again latter." });
+                }
             }
-            catch
+            else
             {
-                return View();
+                return Json(new { success = false, message = "Please correct all the issues." });
             }
         }
 
         //
         // GET: /Listing/Delete/5
 
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Listing/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        
+        public ActionResult DeleteListingAjax(string id)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                BaseClient client = new BaseClient(baseApiUrl, "Listing", "DeleteListing");
+                string result = client.Delete(id.ToString());
+                return Json(new { success = true });
             }
             catch
             {
-                return View();
+                return Json(new { success = false });
             }
         }
+
+
     }
 }

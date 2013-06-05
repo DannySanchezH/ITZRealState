@@ -246,6 +246,10 @@
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\Dashboard\perfil.jpg" />
     <Content Include="Images\Dashboard\logoITZ.png" />
+    <Content Include="Images\_delete.png" />
+    <Content Include="Images\_detalles.png" />
+    <Content Include="Images\_edit.png" />
+    <Content Include="Images\_fav.png" />
     <Content Include="Images\Home\back.png" />
     <Content Include="Images\Home\logosistem.png" />
     <Content Include="Images\Home\main.png" />

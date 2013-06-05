@@ -14,6 +14,10 @@ $(document).ready(function () {
     });
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Listings(Create,Edit,Delete)
 function EditUserjs(id) {
     $("#site_content").hide("slow").load('/User/Edit/'+id).show("slow");
 }
@@ -33,21 +37,28 @@ function submitEdit(frm) {
 function DesireList(id) {
     $("#site_content").hide("slow").load('/Desire/Index/' + id).show("slow");
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Listings(Create,Edit,Delete)
 function EditUserjs(id) {
     $("#site_content").hide("slow").load('/User/Edit/' + id).show("slow");
 }
 
+<<<<<<< HEAD
 function CreateListing() {
     $("#site_content").hide("slow").load('/Listing/Create').show("slow");
 }
 
+=======
+>>>>>>> Listings(Create,Edit,Delete)
 function Listings() {
     $("#site_content").hide("slow").load('/Listing').show("slow");
 }
 
 function Agents() {
+<<<<<<< HEAD
     $("#site_content").hide("slow").load('/User').show("slow");
 }
 
@@ -84,3 +95,8 @@ function Amenities() {
 function Rooms() {
     $("#site_content").hide("slow").load('/Room').show("slow");
 }
+=======
+
+    $("#site_content").load('/User').show("slow");
+}
+>>>>>>> Listings(Create,Edit,Delete)
