@@ -8,12 +8,7 @@ namespace ITZRealState.Models.Mapping
         public DesireMap()
         {
             // Properties
-<<<<<<< HEAD
             this.HasKey(t => t.IdDesire);
-=======
-            this.Property(t => t.IdDesire)
-                .IsRequired();
->>>>>>> Listings(Create,Edit,Delete)
 
             this.Property(t => t.IdListing)
                 .IsRequired();
@@ -23,11 +18,7 @@ namespace ITZRealState.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("DESIRELIST");
-<<<<<<< HEAD
-            this.Property(t => t.IdDesire).HasColumnName("");
-=======
             this.Property(t => t.IdDesire).HasColumnName("IDDESIRE");
->>>>>>> Listings(Create,Edit,Delete)
             this.Property(t => t.IdListing).HasColumnName("IDLISTING");
             this.Property(t => t.IdUser).HasColumnName("IDUSER");
         }

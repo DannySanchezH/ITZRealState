@@ -64,6 +64,7 @@ namespace ITZRealStateWeb.Controllers
                     {
                         ViewBag.user = user;
                         ViewBag.id = userid;
+                        ViewBag.rol = userRol;
                     }
                 }
             catch { }
@@ -98,6 +99,20 @@ namespace ITZRealStateWeb.Controllers
                 }
                 string user = WebSecurity.CurrentUserId.ToString();
                 return user;
+            }
+        }
+
+        public string userRol
+        {
+            get
+            {
+                if (!(WebSecurity.Initialized))
+                {
+                    WebSecurity.InitializeDatabaseConnection("ITZRealStateContext", "webpages_Roles", "RoleId", "RoleName", autoCreateTables: true);
+                }
+                string[] roles = Roles.GetRolesForUser();
+                string firstRol = roles[0];
+                return firstRol;
             }
         }
 

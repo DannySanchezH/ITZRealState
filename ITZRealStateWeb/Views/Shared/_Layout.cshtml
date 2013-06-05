@@ -49,17 +49,20 @@
     <nav>
         <div id="menu_container" class="left">
             <ul class="sf-menu" id="nav">
-                <li><a href="#" onclick="">Search Listing</a></li>
-                <li><a href="#" onclick="Listings();">Listings</a></li>
+                <li><a href="#" onclick="ok();">Search Listing</a></li>
                 <li><a href="#" onclick="DesireList(@(ViewBag.id));">Favorites</a></li>
-                <li><a href="#" onclick="Agents();">Sale Agents</a></li>
-                <li><a href="#">Settings</a>
-                    <ul>
-                        <li> <a href="#" onclick="Amenities();">Amenitie</a></li>
-                        <li> <a href="#" onclick="Rooms();">Room</a></li>
-                    </ul>
-                </li>
-
+                @if ((ViewBag.rol == "Administrator") || (ViewBag.rol == "SalesAgent")){
+                    <li><a href="#" onclick="Listings();">Listings</a></li>
+                    if(ViewBag.rol == "Administrator"){
+                        <li><a href="#" onclick="Agents();">Sale Agents</a></li>
+                        <li><a href="#">Settings</a>
+                            <ul>
+                                <li> <a href="#" onclick="Amenities();">Amenitie</a></li>
+                                <li> <a href="#" onclick="Rooms();">Room</a></li>
+                            </ul>
+                        </li>    
+                    }       
+                }
             </ul>
         </div>
     </nav>
@@ -73,14 +76,7 @@
         </section>
     </div>
 
-<<<<<<< HEAD
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/noty")
-    @Scripts.Render("~/bundles/dropdown")
-    @Scripts.Render("~/Scripts/Shared/_Layout.js")
-    @RenderSection("scripts", required: false)
-=======
+
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/jqueryval")
 	@Scripts.Render("~/bundles/noty")
@@ -88,6 +84,5 @@
 	@Scripts.Render("~/Scripts/Shared/_Layout.js")
     @Scripts.Render("~/Scripts/Listing/Index.js")
 	@RenderSection("scripts", required: false)
->>>>>>> Listings(Create,Edit,Delete)
 </body>
 </html>
