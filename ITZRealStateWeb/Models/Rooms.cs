@@ -6,13 +6,14 @@ using System.Web;
 
 namespace ITZRealStateWeb.Models
 {
-    public class Amenitie
+    public class Room
     {
-        [Display(Name = "Amenitie Id")]
-        public int IdAmenitie { get; set; }
+        [Display(Name = "Room Id")]
+        public int IdRoom { get; set; }
 
         [Required]
-        [Display(Name = "Amenitie Name")]
-        public string name { get; set; }
+        [Display(Name = "Room Type")]
+        public string type { get; set; }
+
     }
 }

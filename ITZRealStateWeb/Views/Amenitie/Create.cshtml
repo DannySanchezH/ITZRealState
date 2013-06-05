@@ -1,0 +1,25 @@
+﻿@model ITZRealStateWeb.Models.Amenitie
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("CreateAmenitie", "Amenitie", FormMethod.Post, new { id = "current_form" })) {
+    @Html.ValidationSummary(true)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <p>
+           <input id="btnCreate" class="btn" type="submit" value="Create" onclick="createAgent(this.form);" />
+            <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
+        </p>
+}
+
+@Scripts.Render("~/Scripts/Amenitie/Index.js")

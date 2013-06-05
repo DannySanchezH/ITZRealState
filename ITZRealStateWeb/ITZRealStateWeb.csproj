@@ -168,6 +168,7 @@
     <Compile Include="Controllers\DesireController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +177,7 @@
     <Compile Include="Helpers\BaseClient.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Amenitie.cs" />
+    <Compile Include="Models\Rooms.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Desire.cs" />
     <Compile Include="Models\Listing.cs" />
@@ -247,6 +249,7 @@
     <Content Include="Images\Home\back.png" />
     <Content Include="Images\Home\logosistem.png" />
     <Content Include="Images\Home\main.png" />
+    <Content Include="Scripts\Amenitie\Index.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -262,6 +265,7 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\Listing\Index.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\Room\Index.js" />
     <Content Include="Scripts\Shared\jquery.easing-sooper.js" />
     <Content Include="Scripts\Shared\jquery.js" />
     <Content Include="Scripts\Shared\jquery.sooperfish.js" />
@@ -319,6 +323,9 @@
     <Content Include="Views\Listing\Edit.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Amenitie\Create.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

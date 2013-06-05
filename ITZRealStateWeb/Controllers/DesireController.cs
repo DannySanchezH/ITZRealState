@@ -57,51 +57,27 @@ namespace ITZRealStateWeb.Controllers
             }
         }
 
-        //
-        // GET: /Desire/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Desire/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult DeleteDesireAjax(int id, int idu)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                BaseClient client = new BaseClient(baseApiUrl, "Desire", "GetMyListDesires");
+                List<Desire> Desires = client.Get<List<Desire>>(idu.ToString());
+                String idDesire = "";
+                foreach (Desire item in Desires)
+                {
+                    if (item.IdListing == id)
+                    {
+                        idDesire = item.IdDesire.ToString();
+                    }
+                }
+                client = new BaseClient(baseApiUrl, "Desire", "DeleteDesire");
+                string result = client.Delete(idDesire);
+                return Redirect("/Dashboard");
             }
             catch
             {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Desire/Delete/5
-
-        public ActionResult Delete(int id, int idu)
-        {
-            return View();
-        }
-
-        public ActionResult DeleteDesireAjax(int id,int idu)
-        {
-            try
-            {
-                BaseClient client = new BaseClient(baseApiUrl, "Desire", "DeleteDesire");
-                //string result = client.Delete(id.ToString(),idu.ToString());
-                return Json(new { success = true });
-            }
-            catch
-            {
-                return Json(new { success = false });
+                return Redirect("/Dashboard");
             }
         }
 

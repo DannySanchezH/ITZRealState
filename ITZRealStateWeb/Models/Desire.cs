@@ -8,6 +8,10 @@ namespace ITZRealStateWeb.Models
 {
     public class Desire
     {
+        [Required]
+        [Display(Name = "Desire Id")]
+        public int IdDesire { get; set; }
+
         [Display(Name = "User Id")]
         public int IdUser { get; set; }
 

@@ -6,7 +6,6 @@ namespace ITZRealState.Models
 {
     public class Amenitie
     {
-        [Key]
         public int IdAmenitie { get; set; }
         public string name { get; set; }
     }

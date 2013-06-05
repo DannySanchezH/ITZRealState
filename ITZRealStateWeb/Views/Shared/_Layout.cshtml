@@ -1,5 +1,4 @@
-﻿
-<html>
+﻿<html>
 <head>
     <title>ITZRealState - Dashboard </title>
     <meta name="description" content="welcome to the dashboard" />
@@ -27,8 +26,8 @@
                             <li id="txt" class="edgeLoad-EDGE-1562389"><a id="login" href="#" class="edgeLoad-EDGE-1562389">Hi! @ViewBag.user</a>
                                 <ul>
                                     <li><a href="#" onclick="EditUserjs(@(ViewBag.id));">Account</a></li>
-                                    
-                                        
+
+
                                     <li>
                                         <span class="logout-btn">
                                             @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -54,8 +53,13 @@
                 <li><a href="#" onclick="Listings();">Listings</a></li>
                 <li><a href="#" onclick="DesireList(@(ViewBag.id));">Favorites</a></li>
                 <li><a href="#" onclick="Agents();">Sale Agents</a></li>
-                <li><a href="#" onclick="">Settings</a></li> 
-                
+                <li><a href="#">Settings</a>
+                    <ul>
+                        <li> <a href="#" onclick="Amenities();">Amenitie</a></li>
+                        <li> <a href="#" onclick="Rooms();">Room</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </nav>
@@ -69,11 +73,11 @@
         </section>
     </div>
 
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/jqueryval")
-	@Scripts.Render("~/bundles/noty")
-	@Scripts.Render("~/bundles/dropdown")
-	@Scripts.Render("~/Scripts/Shared/_Layout.js")
-	@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/noty")
+    @Scripts.Render("~/bundles/dropdown")
+    @Scripts.Render("~/Scripts/Shared/_Layout.js")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ITZRealStateWeb.Models.Room>
+
+<p>
+    <a href="#" onclick="CreateRoom();">Create New</a>
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdRoom })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Scripts.Render("~/Scripts/Room/Index.js")

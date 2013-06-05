@@ -1,45 +1,55 @@
 ﻿using ITZRealStateWeb.Helpers;
+using ITZRealStateWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ITZRealStateWeb.Models;
 
 namespace ITZRealStateWeb.Controllers
 {
-    [Authorize]
-    public class AmenitieController : BaseWebController
+    public class RoomController : BaseWebController
     {
         //
-        // GET: /Amenitie/
+        // GET: /Room/
 
         public ActionResult Index()
         {
-            BaseClient client = new BaseClient(baseApiUrl, "amenitie", "getAmenities");
-            List<Amenitie> amenities = client.Get<List<Amenitie>>();
-            return PartialView(amenities);
-        }
-
-        public ActionResult Create()
-        {
-            Amenitie amenitie = new Amenitie();
-            amenitie.IdAmenitie = 0;
-            return PartialView(amenitie);
+            BaseClient client = new BaseClient(baseApiUrl, "Room", "GetRooms");
+            List<Room> rooms = client.Get<List<Room>>();
+            return PartialView(rooms);
         }
 
         //
-        // POST: /Amenitie/Create
+        // GET: /Room/Details/5
+
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        //
+        // GET: /Room/Create
+
+        public ActionResult Create()
+        {
+            Room room = new Room();
+            room.IdRoom = 0;
+            return PartialView(room);
+        }
+
+        //
+        // POST: /Room/Create
 
         [HttpPost]
-        public ActionResult CreateAmenitie(Amenitie model)
+        public ActionResult CreateRoom(Room model)
         {
             if (ModelState.IsValid == true)
             {
                 try
                 {
-                    BaseClient client = new BaseClient(baseApiUrl, "Amenitie", "PostAmenitie");
-                    string result = client.Post<Amenitie>(model);
+                    BaseClient client = new BaseClient(baseApiUrl, "Room", "PostRoom");
+                    string result = client.Post<Room>(model);
 
                 }
                 catch
@@ -52,7 +62,7 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // GET: /Amenitie/Edit/5
+        // GET: /Room/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -60,7 +70,7 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // POST: /Amenitie/Edit/5
+        // POST: /Room/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -78,19 +88,37 @@ namespace ITZRealStateWeb.Controllers
         }
 
         //
-        // GET: /Amenitie/Delete/5
+        // GET: /Room/Delete/5
 
         public ActionResult Delete(int id)
         {
             try
             {
-                BaseClient client = new BaseClient(baseApiUrl, "Amenitie", "DeleteAmenitie");
+                BaseClient client = new BaseClient(baseApiUrl, "Room", "DeleteRoom");
                 string result = client.Delete(id.ToString());
                 return Redirect("/Dashboard");
             }
             catch
             {
                 return Redirect("/Dashboard");
+            }
+        }
+
+        //
+        // POST: /Room/Delete/5
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
     }

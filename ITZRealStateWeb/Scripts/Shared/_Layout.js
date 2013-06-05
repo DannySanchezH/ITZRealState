@@ -76,3 +76,11 @@ function cancel() {
 function editListing(id) {
     $("#site_content").load('/Listing/Edit/' + id).show("slow");
 }
+
+function Amenities() {
+    $("#site_content").hide("slow").load('/Amenitie').show("slow");
+}
+
+function Rooms() {
+    $("#site_content").hide("slow").load('/Room').show("slow");
+}
