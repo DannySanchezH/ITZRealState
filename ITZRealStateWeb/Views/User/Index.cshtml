@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ITZRealStateWeb.Models.User>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="#" onclick="CreateAgent();">Create New</a>
 </p>
 <table>
     <tr>
@@ -22,6 +22,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.cellular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zipcode)
         </th>
         <th></th>
     </tr>
@@ -46,6 +49,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.cellular)
         </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Zipcode)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
             @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
@@ -55,3 +61,5 @@
 }
 
 </table>
+
+@Scripts.Render("~/Scripts/User/Index.js")

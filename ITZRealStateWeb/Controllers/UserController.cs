@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ITZRealStateWeb.Models;
 using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace ITZRealStateWeb.Controllers
 {
@@ -42,7 +43,28 @@ namespace ITZRealStateWeb.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            RegisterModel agent = new RegisterModel();
+            return PartialView(agent);
+        }
+
+
+        public ActionResult CreateAgentAjax(RegisterModel model)
+        {
+            if (ModelState.IsValid == true)
+            {
+                try
+                {
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, ZipCode = model.Zipcode, phone = model.phone, cellular = model.cellular });
+                    Roles.AddUserToRole(model.UserName, "SalesAgent");
+                    return Json(new { success = true });
+                }
+                catch
+                {
+                    return Json(new { success = false });
+                }
+
+            }
+            return Json(new { success = false });
         }
 
         //

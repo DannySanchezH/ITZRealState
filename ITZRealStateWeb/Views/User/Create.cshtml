@@ -1,0 +1,92 @@
+﻿@model ITZRealStateWeb.Models.RegisterModel
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("CreateAgentAjax", "User", FormMethod.Post, new { id = "current_form" })) {
+    @Html.ValidationSummary(true)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zipcode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zipcode)
+            @Html.ValidationMessageFor(model => model.Zipcode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ConfirmPassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConfirmPassword)
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone)
+            @Html.ValidationMessageFor(model => model.phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cellular)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cellular)
+            @Html.ValidationMessageFor(model => model.cellular)
+        </div>
+
+         @Html.HiddenFor(model => model.salesagentopc)
+
+        <p>
+            <input id="btnCreate" class="btn" type="submit" value="Create" onclick="createAgent(this.form);" />
+            <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
+        </p>
+}
+
+@Scripts.Render("~/Scripts/User/Index.js")
+@Scripts.Render("~/Scripts/Share/_Layout.js")
