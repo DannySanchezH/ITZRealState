@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Zipcode)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+            <a href="javascript:editAgent(@(item.UserId));" class = "edit-link-sm-black editlink">Edit</a>|
+            @Html.ActionLink("Delete", "DeleteAgentAjax", new { id=item.UserId })|
+            @Html.ActionLink("Upgrade", "UpgrateAgent", new { id=item.UserName })
         </td>
     </tr>
 }

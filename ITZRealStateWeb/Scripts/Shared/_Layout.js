@@ -57,21 +57,11 @@ function createListing(form) {
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
         if (data.IdListing != null) {
             $("#site_content").hide("slow");
-            updateTable(data);
         } else {
             $("#site_content").hide("slow");
         }
     });
     return false;
-}
-
-function updateTable(data) {
-    $('#Listing-table').dataTable().fnAddData([
-		data.,
-		data.lastName,
-		publicColumn(data.isPublic),
-		actionsColumn(data.bookId)
-    ]);
 }
 
 function cancelListing() {

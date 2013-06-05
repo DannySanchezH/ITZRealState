@@ -29,15 +29,6 @@ namespace ITZRealStateWeb.Controllers
             }
             return PartialView(_agents);
         }
-
-        //
-        // GET: /SalesAgent/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         //
         // GET: /SalesAgent/Create
 
@@ -56,85 +47,79 @@ namespace ITZRealStateWeb.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, ZipCode = model.Zipcode, phone = model.phone, cellular = model.cellular });
                     Roles.AddUserToRole(model.UserName, "SalesAgent");
-                    return Json(new { success = true });
                 }
                 catch
                 {
-                    return Json(new { success = false });
+                    return Redirect("/Dashboard");
                 }
 
             }
-            return Json(new { success = false });
+            return Redirect("/Dashboard");
         }
 
-        //
-        // POST: /SalesAgent/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         //
         // GET: /SalesAgent/Edit/5
 
         public ActionResult Edit(int id)
         {
-            return View();
+            BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
+            User agent = client.Get<User>(id.ToString());
+            return PartialView(agent);
         }
 
-        //
-        // POST: /SalesAgent/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditAjax(User model)
+        {
+            if (ModelState.IsValid == true)
+            {
+                try
+                {
+                    BaseClient client = new BaseClient(baseApiUrl, "User", "PutUser");
+                    string result = client.Put<User>(model.UserId.ToString(), model);
+                }
+                catch
+                {
+                    return Redirect("/Dashboard");
+                }
+            }
+                return Redirect("/Dashboard");
+        }
+
+
+        public ActionResult DeleteAgentAjax(string id)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
+                User agent = client.Get<User>(id.ToString());
+                Roles.RemoveUserFromRole(agent.UserName, "SalesAgent");
+               client = new BaseClient(baseApiUrl, "User", "DeleteUser");
+                string result = client.Delete(id);
+                return Redirect("/Dashboard");
             }
             catch
             {
-                return View();
+                BaseClient client = new BaseClient(baseApiUrl, "User", "GetUser");
+                User agent = client.Get<User>(id.ToString());
+                Roles.AddUserToRole(agent.UserName, "SalesAgent");
+                return Redirect("/Dashboard");
             }
         }
 
-        //
-        // GET: /SalesAgent/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /SalesAgent/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult UpgrateAgent(string id)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                Roles.AddUserToRole(id, "Administrator");
+                Roles.RemoveUserFromRole(id, "SalesAgent");
+                return Redirect("/Dashboard");
             }
             catch
             {
-                return View();
+                return Redirect("/Dashboard");
             }
         }
+
     }
 }

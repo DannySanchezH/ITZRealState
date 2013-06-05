@@ -17,3 +17,7 @@ function createAgent(form) {
     });
     return false;
 }
+
+function editAgent(id) {
+    $("#site_content").hide("slow").load('/User/Edit/' + id).show("slow");
+}

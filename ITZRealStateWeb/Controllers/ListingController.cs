@@ -51,17 +51,15 @@ namespace ITZRealStateWeb.Controllers
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "Listing", "PostListing");
                     string result = client.Post<Listing>(model);
-                    return Json(model);
+                    
                 }
                 catch
                 {
-                    return Json(new { success = false });
+                    return Redirect("/Dashboard");
                 }
             }
-            else
-            {
-                return Json(new { success = false });
-            }
+           
+                return Redirect("/Dashboard");
         }
 
         //

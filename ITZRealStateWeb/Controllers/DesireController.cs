@@ -8,6 +8,7 @@ using ITZRealStateWeb.Helpers;
 
 namespace ITZRealStateWeb.Controllers
 {
+    [Authorize]
     public class DesireController : BaseWebController
     {
         //
