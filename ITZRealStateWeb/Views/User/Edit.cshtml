@@ -8,8 +8,10 @@
 {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>User</legend>
+     <div id="login-box"  class="">
+       <div class="form_settings" id=" centro">
+
+        <legend><h2>User</h2></legend>
 
         @Html.HiddenFor(model => model.UserId)
         @Html.HiddenFor(model => model.UserName)
@@ -65,5 +67,6 @@
         <p>
             <input type="submit" value="Save" />
         </p>
-    </fieldset>
+    </div>
+         </div>
 }

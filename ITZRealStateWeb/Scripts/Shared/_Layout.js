@@ -63,6 +63,6 @@ function Rooms() {
     $("#site_content").hide("slow").load('/Room').show("slow");
 }
 
-function Search(id) {
-    $("#site_content").hide("slow").load('/Search/SearchLog/' + id).show("slow");
+function Search() {
+    $("#site_content").hide("slow").load('/Listings/').show("slow");
 }

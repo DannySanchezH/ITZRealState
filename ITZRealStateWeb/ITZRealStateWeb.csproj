@@ -169,7 +169,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -271,7 +270,6 @@
     <Content Include="Scripts\Listing\Index.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\Room\Index.js" />
-    <Content Include="Scripts\Search\Index.js" />
     <Content Include="Scripts\Shared\jquery.easing-sooper.js" />
     <Content Include="Scripts\Shared\jquery.js" />
     <Content Include="Scripts\Shared\jquery.sooperfish.js" />
@@ -332,9 +330,7 @@
     <Content Include="Views\Amenitie\Create.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\Create.cshtml" />
-    <Content Include="Views\Search\SearchLog.cshtml" />
     <Content Include="Views\Listing\MyListings.cshtml" />
-    <Content Include="Views\Search\MyNewSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

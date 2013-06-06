@@ -7,6 +7,10 @@
 @using (Html.BeginForm("CreateAgentAjax", "User", FormMethod.Post, new { id = "current_form" })) {
     @Html.ValidationSummary(true)
 
+     <div id="login-box"  class="">
+       <div class="form_settings" id=" centro">
+
+        <legend><h2>User</h2></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -86,6 +90,8 @@
             <input id="btnCreate" class="btn" type="submit" value="Create" onclick="createAgent(this.form);" />
             <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
         </p>
+           </div>
+         </div>
 }
 
 @Scripts.Render("~/Scripts/User/Index.js")

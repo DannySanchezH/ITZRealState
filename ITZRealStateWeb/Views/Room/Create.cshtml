@@ -7,6 +7,10 @@
 @using (Html.BeginForm("CreateRoom", "Room", FormMethod.Post, new { id = "current_form" })) {
     @Html.ValidationSummary(true)
 
+    <div id="login-box"  class="">
+       <div class="form_settings" id=" centro">
+
+        <legend><h2>Room</h2></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.type)
@@ -19,4 +23,6 @@
         <p>
             <input type="submit" value="Create" />
         </p>
+           </div>
+    </div>
 }
