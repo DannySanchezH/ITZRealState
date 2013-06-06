@@ -12,16 +12,8 @@ namespace ITZRealStateWeb.Models
         public int IdListing { get; set; }
         
         [Required]
-        [Display(Name = "Street")]
-        public string street { get; set; }
-
-        [Required]
-        [Display(Name = "Number")]
-        public string number { get; set; }
-
-        [Required]
-        [Display(Name = "Colony")]
-        public string colony { get; set; }
+        [Display(Name = "Address")]
+        public string Address { get; set; }
 
         [Required]
         [Display(Name = "Lot Size")]
@@ -38,10 +30,6 @@ namespace ITZRealStateWeb.Models
         [Required]
         [Display(Name = "SaleAgent")]
         public int IdUser { get; set;}
-
-        [Required]
-        [Display(Name = "Sold")]
-        public bool sold { get; set; }
 
         [Required]
         [Display(Name = "ZipCode")]

@@ -8,14 +8,11 @@ namespace ITZRealState.Models
     {
         
         public int IdListing { get; set; }
-        public string street { get; set; }
-        public string number { get; set; }
-        public string colony { get; set; }
+        public string Address { get; set; }
         public double lotSize { get; set; }
         public double constSize { get; set; }
         public double price { get; set; }
         public int IdUser { get; set;}
-        public bool sold { get; set; }
         public int zipcode { get; set; }
     }
 }

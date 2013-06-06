@@ -25,12 +25,28 @@ namespace ITZRealStateWeb.Controllers
 
         //
         // GET: /Search/Details/5
-
-        public ActionResult MyNewSearch(Search model)
+        public ActionResult MyNewSearchL(Search model)
         {
             BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetZCList");
             List<Listing> listings = client.Get<List<Listing>>(model.zipcode.ToString());
             return PartialView(listings);
+        }
+
+        public ActionResult AddFavorite(int id, int idu)
+        {
+            Desire desire = new Desire();
+            desire.IdListing = id;
+            desire.IdUser = idu;
+            try
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Desire", "PostDesire");
+                string result = client.Post<Desire>(desire);
+            }
+            catch
+            {
+                return Redirect("/Dashboard");
+            }
+            return Redirect("/Dashboard");
         }
 
         //

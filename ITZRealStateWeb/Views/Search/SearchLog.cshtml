@@ -4,16 +4,22 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-@using (Html.BeginForm("MyNewSearch", "Search", FormMethod.Post, new { id = "current_form" })) {
+@using (Html.BeginForm("MyNewSearchL", "Search", FormMethod.Get, new { id = "current_form" })) {
     @Html.ValidationSummary(true)
+ <div id="login-box"  class="">
+       <div class="form_settings" id=" centro">
 
+        <legend><h2> Search</h2></legend>
             @Html.LabelFor(model => model.zipcode)
             @Html.EditorFor(model => model.zipcode)
             @Html.ValidationMessageFor(model => model.zipcode)
 
         <p>
-            <input type="button" value="Search" onclick="submitform(this.form);" />
+            <input id="btnCreate" class="btn" type="submit" value="Search" />
         </p>
+           </div>
+     </div>
 }
+           
 
 @Scripts.Render("~/Scripts/Search/Index.js")

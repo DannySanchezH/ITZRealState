@@ -32,6 +32,8 @@ function submitEdit(frm) {
 }
 
 function DesireList(id) {
+
+        $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/Desire/Index/' + id).show("slow");
 }
 
@@ -44,22 +46,27 @@ function CreateListing() {
 }
 
 function Listings() {
+    $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/Listing').show("slow");
 }
 
 function MyListings(id) {
+    $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/Listing/MyListings/' + id).show("slow");
 }
 
 function Agents() {
+    $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/User').show("slow");
 }
 
 function Amenities() {
+    $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/Amenitie').show("slow");
 }
 
 function Rooms() {
+    $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/Room').show("slow");
 }
 

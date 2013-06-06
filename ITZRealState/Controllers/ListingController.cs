@@ -46,11 +46,11 @@ namespace ITZRealState.Controllers
 
         public IEnumerable<Listing> GetZCList(int id)
         {
-            List<Listing> _desires = new List<Listing>();
-            _desires = (from desire in db.Listings
-                        where desire.IdUser == id
-                        select desire).ToList();
-            return _desires;
+            List<Listing> _lists = new List<Listing>();
+            _lists = (from list in db.Listings
+                        where list.zipcode == id
+                        select list).ToList();
+            return _lists;
         }
 
 

@@ -1,11 +1,7 @@
-﻿function submitform(frm) {
-    if (!$(frm).valid()) { return false; }
-    $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
-        if (data.zipcode != null) {
+﻿$(document).ready(function () {
+    $("#site_content2").hide("slow");
+});
 
-        } else {
-            $("#site-content").hide("slow");
-        }
-    });
-    return false;
+function Cancel(id) {
+    $("#site_content").hide("slow").load('/Search/MyNewSearch').show("slow");;
 }

@@ -1,9 +1,11 @@
-﻿
-@model IEnumerable<ITZRealStateWeb.Models.Listing>
+﻿@model IEnumerable<ITZRealStateWeb.Models.Listing>
 
-<p>
-    <a href="#" onclick="CreateListing(@ViewBag.id);">Create New</a>
-</p>
+@{
+    ViewBag.Title = "MyNewSearchL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="site_content2">
 <table>
     <tr>
         <th>
@@ -42,12 +44,10 @@
             @Html.DisplayFor(modelItem => item.zipcode)
         </td>
         <td>
-            <a href="#" onclick="editListing(@item.IdListing);">Edit</a> |
-            @Html.ActionLink("Delete", "DeleteListingAjax","Listing", new { id = item.IdListing },null)
+            @Html.ActionLink("Favorite", "AddFavorite", new { id=item.IdListing , idu= ViewBag.id }) 
         </td>
     </tr>
 }
-    
+
 </table>
-
-
+    </div>
