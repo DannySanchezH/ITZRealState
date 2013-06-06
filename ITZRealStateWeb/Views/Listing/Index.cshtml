@@ -1,8 +1,10 @@
 ﻿
 @model IEnumerable<ITZRealStateWeb.Models.Listing>
+@Scripts.Render("~/Scripts/Listing/Index.js")
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
 
 <p>
-    <a href="#" onclick="CreateListing(@ViewBag.id);">Create New</a>
+    <input class="btn" type="button" onclick="CreateListing(@ViewBag.id);" value="Create New"/>
 </p>
 <table>
     <tr>
@@ -62,12 +64,11 @@
         <td>
             <a href="#" onclick="editListing(@item.IdListing);">Edit</a> |
             @Html.ActionLink("Delete", "DeleteListingAjax","Listing", new { id = item.IdListing },null)
-            
-            <!--<a href="#" onclick="deleteListing(@item.IdListing);">Delete</a>-->
         </td>
     </tr>
 }
     
 </table>
+
 
 

@@ -6,15 +6,15 @@
 
 <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
 
-@Scripts.Render("~/Scripts/Shared/_Layout.js")
+@Scripts.Render("~/Scripts/Listing/Index.js")
 
 @using (Html.BeginForm("EditListingAjax", "Listing", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    @*<fieldset>*@
-        <legend>Listing</legend>
+    <div id="login-box" class="form_settings">
+        <h2><legend>Edit Listing</legend></h2>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.street)
@@ -96,6 +96,6 @@
             <input class="btn" type="button" value="Update" onclick="submitEdit(this.form);" />
             <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
         </p>
-    @*</fieldset>*@
+    </div>
 }
 

@@ -1,14 +1,18 @@
 ﻿//____________________________LISTINGS___________________________________________
 
+//Since Dashboard on Create New
 function CreateListing(id) {
     $("#site_content").hide("slow").load('/Listing/Create/' + id).show("slow");
 }
 
+//Since site_content on Delete
 function editListing(id) {
     $("#site_content").hide("slow").load('/Listing/Edit/' + id).show("slow");
 }
 
-//Create Listing
+
+//_____________In Create Listing_________
+//Submit Create Listing
 function submitCreate(form) {
     if (!$(frm).valid()) { return false; }
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
@@ -22,7 +26,7 @@ function submitCreate(form) {
     return false;
 }
 
-//Edit Listing
+//Submit Edit Listing
 function submitEdit(frm) {
     if (!$(frm).valid()) { return false; }
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
@@ -36,9 +40,12 @@ function cancel() {
     $("#site_content").hide("slow").load('/Listing/').show("slow");
 }
 
+//  Methods to Checkbuttons of Rooms and Amenities
 
-function deleteListing(id) {
-    
+/*$(document).ready(function () {
+    alert("roomsag");
+});*/
+function getRooms(){
+    alert("This is the room: ");
 }
-
 

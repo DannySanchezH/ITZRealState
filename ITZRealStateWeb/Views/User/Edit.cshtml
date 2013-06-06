@@ -4,12 +4,14 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+
 @using (Html.BeginForm("EditAjax", "User", FormMethod.Post, new { id = "current_form" }))
 {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>User</legend>
+    <div id="login-box" class="form_settings">
+        <h2><legend>Edit User</legend></h2>
 
         @Html.HiddenFor(model => model.UserId)
         @Html.HiddenFor(model => model.UserName)
@@ -61,9 +63,10 @@
             @Html.EditorFor(model => model.cellular)
             @Html.ValidationMessageFor(model => model.cellular)
         </div>
-
+    
         <p>
-            <input type="submit" value="Save" />
+            <input class="btn" type="submit" value="Save" />
         </p>
-    </fieldset>
+    </div>
+       
 }

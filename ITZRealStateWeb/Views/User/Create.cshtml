@@ -4,9 +4,14 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+
 @using (Html.BeginForm("CreateAgentAjax", "User", FormMethod.Post, new { id = "current_form" })) {
     @Html.ValidationSummary(true)
+    
+    <div id="login-box"  class="form_settings">
 
+        <h2><legend>New Sale Agent</legend></h2>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -83,9 +88,10 @@
          @Html.HiddenFor(model => model.salesagentopc)
 
         <p>
-            <input id="btnCreate" class="btn" type="submit" value="Create" onclick="createAgent(this.form);" />
+            <input class="btn" type="submit" value="Create" onclick="createAgent(this.form);" />
             <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
         </p>
+    </div>
 }
 
 @Scripts.Render("~/Scripts/User/Index.js")

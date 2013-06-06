@@ -40,6 +40,14 @@ namespace ITZRealStateWeb.Controllers
 
         public ActionResult Create(int id)
         {
+            BaseClient client = new BaseClient(baseApiUrl, "Amenitie", "GetAmenities");
+            List<Amenitie> amenities = client.Get<List<Amenitie>>();
+            ViewBag.amenities = amenities;
+
+            client = new BaseClient(baseApiUrl, "Room", "GetRooms");
+            List<Room> rooms = client.Get<List<Room>>();
+            ViewBag.rooms = rooms;  
+
             Listing listing = new Listing();
             listing.IdUser = id;
             return PartialView(listing);
@@ -63,11 +71,11 @@ namespace ITZRealStateWeb.Controllers
                 }
                 catch
                 {
-                    return Redirect("/Dashboard");
+                    return Redirect("/Dashboard/Listing");
                 }
             }
            
-                return Redirect("/Dashboard");
+                return Redirect("/Dashboard/Listing");
         }
 
         //
@@ -95,8 +103,10 @@ namespace ITZRealStateWeb.Controllers
                 }
                 catch
                 {
-                    return Redirect("/Dashboard");
+                    return Redirect("/Dashboard/Listing");
                 }
+            }
+            return Redirect("/Dashboard/Listing");
         }
 
         //

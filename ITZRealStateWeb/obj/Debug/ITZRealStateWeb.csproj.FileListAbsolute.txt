@@ -310,3 +310,4 @@ C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\Microsoft.Web.
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\bin\es\WebMatrix.WebData.resources.dll
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.dll
 C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.pdb
+C:\Users\MAR\Documents\GitHub\ITZRealState\ITZRealStateWeb\obj\Debug\ITZRealStateWeb.csprojResolveAssemblyReference.cache

@@ -3,10 +3,14 @@
 <script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
 
 @using (Html.BeginForm("CreateRoom", "Room", FormMethod.Post, new { id = "current_form" })) {
     @Html.ValidationSummary(true)
 
+    <div id="login-box"  class="form_settings">
+        
+        <legend><h2>New Room</h2></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.type)
@@ -17,6 +21,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input class="btn" type="submit" value="Create" />
         </p>
+    </div>
 }

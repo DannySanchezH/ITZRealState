@@ -3,9 +3,9 @@
 <script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
-@Scripts.Render("~/Scripts/Shared/_Layout.js")
+
+@Scripts.Render("~/Scripts/Listing/Index.js")
  
 
 @using (Html.BeginForm("CreateListingAjax", "Listing", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
@@ -13,82 +13,94 @@
     @Html.ValidationSummary(true)
 
    @* <fieldset>*@
-
-        <div id="login-box"  class="">
-       <div class="form_settings" id=" centro">
-
-        <legend><h2> Listing</h2></legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.street)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.street)
-            @Html.ValidationMessageFor(model => model.street)
-        </div>
-
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.number)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.number)
-            @Html.ValidationMessageFor(model => model.number)
-        </div>
-
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.colony)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.colony)
-            @Html.ValidationMessageFor(model => model.colony)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.lotSize)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.lotSize)
-            @Html.ValidationMessageFor(model => model.lotSize)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.constSize)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.constSize)
-            @Html.ValidationMessageFor(model => model.constSize)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.price)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.price)
-            @Html.ValidationMessageFor(model => model.price)
-        </div>
-      
-        <div class="editor-label">
-            @Html.LabelFor(model => model.zipcode)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.zipcode)
-            @Html.ValidationMessageFor(model => model.zipcode)
-        </div>
-
-        @Html.HiddenFor(model => model.IdListing)
-		@Html.HiddenFor(model => model.IdUser)
-        @Html.HiddenFor(model => model.sold)
-
-        <p>
-            <input class="btn" type="submit" value="Create" onclick="submitCreate(this.form);" />
-            <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
-        </p>
-           
-        </div>
-        </div>
     
+    <div>
+
+        <div id="login-box"  class="form_settings">
+
+                <legend><h2>New Listing</h2></legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.street)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.street)
+                    @Html.ValidationMessageFor(model => model.street)
+                </div>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.number)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.number)
+                    @Html.ValidationMessageFor(model => model.number)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.colony)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.colony)
+                    @Html.ValidationMessageFor(model => model.colony)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.lotSize)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.lotSize)
+                    @Html.ValidationMessageFor(model => model.lotSize)
+                </div>
+        
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.constSize)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.constSize)
+                    @Html.ValidationMessageFor(model => model.constSize)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.price)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.price)
+                    @Html.ValidationMessageFor(model => model.price)
+                </div>
+      
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.zipcode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.zipcode)
+                    @Html.ValidationMessageFor(model => model.zipcode)
+                </div>
+            
+                                
+            <h3>Rooms</h3>
+                @foreach(ITZRealStateWeb.Models.Room room in ViewBag.rooms){
+                    <input type="checkbox">@room.type
+                }
+            
+
+                <h3>Amenities</h3>
+                @foreach(ITZRealStateWeb.Models.Amenitie amenitie in ViewBag.amenities){
+                    <input type="checkbox">@amenitie.name
+                } 
+
+                @Html.HiddenFor(model => model.IdListing)
+		        @Html.HiddenFor(model => model.IdUser)
+                @Html.HiddenFor(model => model.sold)
+
+                <p>
+                    <input class="btn" type="submit" value="Create" onclick="submitCreate(this.form);" />
+                    <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
+                </p>
+           
+            </div>
+    </div>
+
       
     @*</fieldset>*@
 } 
