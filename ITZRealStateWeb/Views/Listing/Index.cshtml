@@ -60,10 +60,8 @@
             @Html.DisplayFor(modelItem => item.zipcode)
         </td>
         <td>
-            @if(ViewBag.rol == "Administrator"){
-            <a href="#" onclick="editListing(@item.IdListing);">Edit</a> 
+            <a href="#" onclick="editListing(@item.IdListing);">Edit</a> |
             @Html.ActionLink("Delete", "DeleteListingAjax","Listing", new { id = item.IdListing },null)
-            }
             
             <!--<a href="#" onclick="deleteListing(@item.IdListing);">Delete</a>-->
         </td>

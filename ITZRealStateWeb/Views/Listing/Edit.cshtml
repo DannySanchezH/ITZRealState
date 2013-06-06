@@ -13,10 +13,8 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-     <div id="login-box"  class="">
-       <div class="form_settings" id=" centro">
-
-        <legend><h2>Listing</h2></legend>
+    @*<fieldset>*@
+        <legend>Listing</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.street)
@@ -91,14 +89,13 @@
         </div>
     
         @Html.HiddenFor(model => model.IdListing)
-        		
+		@*@Html.HiddenFor(model => model.IdUser)
+        @Html.HiddenFor(model => model.sold)*@
 
         <p>
             <input class="btn" type="button" value="Update" onclick="submitEdit(this.form);" />
             <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
         </p>
-           </div>
-         </div>
-
+    @*</fieldset>*@
 }
 
