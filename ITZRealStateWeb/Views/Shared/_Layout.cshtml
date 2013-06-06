@@ -37,6 +37,9 @@
                                             }
                                         </span>
                                     </li>
+                                    <li>
+                                     @Html.Action("ExternalLoginsList","Account", new { ReturnUrl = ViewBag.ReturnUrl })
+                                        </li>
                                 </ul>
                             </li>
                         </ul>
@@ -49,11 +52,12 @@
     <nav>
         <div id="menu_container" class="left">
             <ul class="sf-menu" id="nav">
-                <li><a href="#" onclick="ok();">Search Listing</a></li>
+                <li><a href="#" onclick="Search(@(ViewBag.id));">Search Listing</a></li>
                 <li><a href="#" onclick="DesireList(@(ViewBag.id));">Favorites</a></li>
-                @if ((ViewBag.rol == "Administrator") || (ViewBag.rol == "SalesAgent")){
-                    <li><a href="#" onclick="Listings();">Listings</a></li>
+                @if ((ViewBag.rol == "SalesAgent")){
+                    <li><a href="#" onclick="MyListings(@(ViewBag.id));">Listings</a></li>
                     if(ViewBag.rol == "Administrator"){
+                        <li><a href="#" onclick="Listings();">Listings</a></li>
                         <li><a href="#" onclick="Agents();">Sale Agents</a></li>
                         <li><a href="#">Settings</a>
                             <ul>

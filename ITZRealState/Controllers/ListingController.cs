@@ -35,6 +35,24 @@ namespace ITZRealState.Controllers
             return listing;
         }
 
+        public IEnumerable<Listing> GetMyList(int id)
+        {
+            List<Listing> _desires = new List<Listing>();
+            _desires = (from desire in db.Listings
+                        where desire.IdUser == id
+                        select desire).ToList();
+            return _desires;
+        }
+
+        public IEnumerable<Listing> GetZCList(int id)
+        {
+            List<Listing> _desires = new List<Listing>();
+            _desires = (from desire in db.Listings
+                        where desire.IdUser == id
+                        select desire).ToList();
+            return _desires;
+        }
+
 
         // PUT api/Listing/5
         public HttpResponseMessage PutListing(long id, Listing listing)

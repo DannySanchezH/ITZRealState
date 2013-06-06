@@ -1,0 +1,19 @@
+﻿@model ITZRealStateWeb.Controllers.Search
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("MyNewSearch", "Search", FormMethod.Post, new { id = "current_form" })) {
+    @Html.ValidationSummary(true)
+
+            @Html.LabelFor(model => model.zipcode)
+            @Html.EditorFor(model => model.zipcode)
+            @Html.ValidationMessageFor(model => model.zipcode)
+
+        <p>
+            <input type="button" value="Search" onclick="submitform(this.form);" />
+        </p>
+}
+
+@Scripts.Render("~/Scripts/Search/Index.js")

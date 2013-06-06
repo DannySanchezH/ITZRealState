@@ -47,6 +47,10 @@ function Listings() {
     $("#site_content").hide("slow").load('/Listing').show("slow");
 }
 
+function MyListings(id) {
+    $("#site_content").hide("slow").load('/Listing/MyListings/' + id).show("slow");
+}
+
 function Agents() {
     $("#site_content").hide("slow").load('/User').show("slow");
 }
@@ -57,4 +61,8 @@ function Amenities() {
 
 function Rooms() {
     $("#site_content").hide("slow").load('/Room').show("slow");
+}
+
+function Search(id) {
+    $("#site_content").hide("slow").load('/Search/SearchLog/' + id).show("slow");
 }
