@@ -12,7 +12,7 @@ namespace ITZRealStateWeb.Controllers
     {
         //
         // GET: /Listing/
-        
+
         public ActionResult Index()
         {
             BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListings");
@@ -46,14 +46,14 @@ namespace ITZRealStateWeb.Controllers
 
             client = new BaseClient(baseApiUrl, "Room", "GetRooms");
             List<Room> rooms = client.Get<List<Room>>();
-            ViewBag.rooms = rooms;  
+            ViewBag.rooms = rooms;
 
             Listing listing = new Listing();
             listing.IdUser = id;
             return PartialView(listing);
         }
-        
-      
+
+
 
         //
         // POST: /Listing/Create
@@ -67,20 +67,20 @@ namespace ITZRealStateWeb.Controllers
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "Listing", "PostListing");
                     string result = client.Post<Listing>(model);
-                    
+
                 }
                 catch
                 {
-                    return Redirect("/Dashboard/Listing");
+                    return Redirect("/Dashboard");
                 }
             }
-           
-                return Redirect("/Dashboard/Listing");
+
+            return Redirect("/Dashboard");
         }
 
         //
         // GET: /Listing/Edit/5
-        
+
         public ActionResult Edit(int id)
         {
             BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListing");
@@ -94,39 +94,71 @@ namespace ITZRealStateWeb.Controllers
         [HttpPost]
         public ActionResult EditListingAjax(Listing model)
         {
-           
+            BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListing");
+            Listing listing = client.Get<Listing>(model.IdListing.ToString());
+            if (ModelState.IsValid == true)
+            {
+                if (user == null)
+                {
+                    client = new BaseClient(baseApiUrl, "Listing", "PostListing");
+                    string result = client.Post<Listing>(model);
+                    return Json(new { success = true });
+                }
                 try
                 {
-                    BaseClient client = new BaseClient(baseApiUrl, "Listing", "PutListing");
+                    client = new BaseClient(baseApiUrl, "Listing", "PutListing");
                     string result = client.Put<Listing>(model.IdListing.ToString(), model);
-                    return Redirect("/Dashboard");
+                    return Json(new { success = true });
                 }
                 catch
                 {
-                    return Redirect("/Dashboard/Listing");
+                    return Json(new { success = false, message = "There was an issue with the server, please try again latter." });
                 }
             }
-            return Redirect("/Dashboard/Listing");
+            else
+            {
+                return Json(new { success = false, message = "Please correct all the issues." });
+            }
         }
 
         //
         // GET: /Listing/Delete/5
 
-        
+
         public ActionResult DeleteListingAjax(string id)
         {
             try
             {
                 BaseClient client = new BaseClient(baseApiUrl, "Listing", "DeleteListing");
-                string result = client.Delete(id);
-                return Redirect("/Dashboard");
+                string result = client.Delete(id.ToString());
+                return Json(new { success = true });
             }
             catch
             {
-                return Redirect("/Dashboard");
+                return Json(new { success = false });
             }
         }
+     public ActionResult CreateComplet(int id)
+        {
+            BaseClient client = new BaseClient(baseApiUrl, "Amenitie", "GetAmenities");
+            List<Amenitie> amenities = client.Get<List<Amenitie>>();
+            ViewBag.amenities = amenities;
 
+            client = new BaseClient(baseApiUrl, "Room", "GetRooms");
+            List<Room> rooms = client.Get<List<Room>>();
+            ViewBag.rooms = rooms;
+            
+            Listing listing = new Listing();
+            listing.IdUser = id;
+            return PartialView();
+        }
 
+    }
+
+    public class CompletListing
+    {
+        public Listing Listing { get; set; }
+        public Room_Listing Rooms { get; set; }
+        public Amenitie Amenities { get; set; }
     }
 }

@@ -31,7 +31,6 @@ function submitCreate(form) {
 function submitEdit(frm) {
     if (!$(frm).valid()) { return false; }
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
-        updateTable(data);
         document.location.reload(true);
     });
     return false;
@@ -46,7 +45,8 @@ function cancel() {
 /*$(document).ready(function () {
     alert("roomsag");
 });*/
-function getRooms(){
-    alert("This is the room: ");
+function getRoom(id,type){
+    $(".room").appendChild("<input id='" + idRoom + "' type='checkbutton' name='" + type + "'> " + type);
+    
 }
 

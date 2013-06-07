@@ -1,0 +1,127 @@
+﻿@model ITZRealStateWeb.Controllers.CompletListing
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@Scripts.Render("~/Scripts/Listing/Index.js")
+
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    
+    <div id="centro">
+   <div id="login-box"  class="form_settings">
+
+                <h2><legend>New Listing</legend></h2>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.street)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.street)
+                    @Html.ValidationMessageFor(model => model.Listing.street)
+                </div>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.number)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.number)
+                    @Html.ValidationMessageFor(model => model.Listing.number)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.colony)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.colony)
+                    @Html.ValidationMessageFor(model => model.Listing.colony)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.lotSize)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.lotSize)
+                    @Html.ValidationMessageFor(model => model.Listing.lotSize)
+                </div>
+                
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.constSize)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.constSize)
+                    @Html.ValidationMessageFor(model => model.Listing.constSize)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.price)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.price)
+                    @Html.ValidationMessageFor(model => model.Listing.price)
+                </div>
+
+                 <div class="editor-label">
+                    @Html.LabelFor(model => model.Listing.zipcode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Listing.zipcode)
+                    @Html.ValidationMessageFor(model => model.Listing.zipcode)
+                </div>
+
+
+                <h3>Add Rooms</h3>
+                <table>
+                    <tr>
+                        <th colspan="2">Rooms</th>
+                        <th>Amount</th>
+                    </tr>
+                    @foreach(ITZRealStateWeb.Models.Room room in ViewBag.rooms){
+                    <tr>
+                        <td> 
+                                <input id="@room.IdRoom" class="room"type="checkbox" name="@room.type">
+                         </td>
+                        <td>
+                                @room.type
+                        </td>
+                        <td>
+                                @Html.EditorFor(model => model.Rooms.amount)
+                                @Html.ValidationMessageFor(model => model.Rooms.amount)
+                        </td>
+                    </tr>
+                    }
+                </table>
+                
+
+
+
+                <h3>Add Amenities</h3>
+                @foreach (ITZRealStateWeb.Models.Amenitie amenitie in ViewBag.amenities)
+                {
+                    <input id="@amenitie.IdAmenitie" class="room"type="checkbox" name="@amenitie.name">@amenitie.name <br>
+                }
+
+                <div class="editor-label">
+                    
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Amenities.name)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Amenities.name)
+                    @Html.ValidationMessageFor(model => model.Amenities.name)
+                </div>
+
+                <p>
+                    <input class="btn" type="submit" value="Create" onclick="submitCreate(this.form);" />
+                    <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
+                </p>
+    </div>
+}
+

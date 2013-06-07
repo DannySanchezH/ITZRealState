@@ -8,14 +8,15 @@
     @Html.ValidationSummary(true)
  <div id="login-box"  class="">
        <div class="form_settings" id=" centro">
-
-        <legend><h2> Search</h2></legend>
+    <div id="centro">
+    <div id="login-box" class="sidebar">
+        
             @Html.LabelFor(model => model.zipcode)
             @Html.EditorFor(model => model.zipcode)
             @Html.ValidationMessageFor(model => model.zipcode)
 
         <p>
-            <input id="btnCreate" class="btn" type="submit" value="Search" />
+            <input class="BTN" type="button" value="Search" onclick="submitform(this.form);" />
         </p>
            </div>
      </div>
@@ -23,3 +24,4 @@
            
 
 @Scripts.Render("~/Scripts/Search/Index.js")
+</div></div>

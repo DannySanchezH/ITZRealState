@@ -53,18 +53,17 @@
                 <li><a href="#" onclick="DesireList(@(ViewBag.id));">Favorites</a></li>
                 @if ((ViewBag.rol == "SalesAgent")){
                     <li><a href="#" onclick="MyListings(@(ViewBag.id));">Listings</a></li>
-                }
-                    @if(ViewBag.rol == "Administrator"){
-                        <li><a href="#" onclick="Listings();">Listings</a></li>
-                        <li><a href="#" onclick="Agents();">Sale Agents</a></li>
-                        <li><a href="#">Settings</a>
-                            <ul>
-                                <li> <a href="#" onclick="Amenities();">Amenitie</a></li>
-                                <li> <a href="#" onclick="Rooms();">Room</a></li>
-                            </ul>
-                        </li>    
-      
-                }
+                }else if(ViewBag.rol == "Administrator"){
+                    <li><a href="#" onclick="Listings();">Listings</a></li>
+                    <li><a href="#" onclick="Agents();">Sale Agents</a></li>
+                    <li><a href="#">Settings</a>
+                        <ul>
+                            <li> <a href="#" onclick="Amenities();">Amenitie</a></li>
+                            <li> <a href="#" onclick="Rooms();">Room</a></li>
+                        </ul>
+                    </li>    
+                 }       
+                
             </ul>
         </div>
     </nav>

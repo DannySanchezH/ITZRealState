@@ -179,6 +179,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Amenitie.cs" />
     <Compile Include="Models\Rooms.cs" />
+    <Compile Include="Models\Room_Listing.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Desire.cs" />
     <Compile Include="Models\Listing.cs" />
@@ -336,9 +337,12 @@
     <Content Include="Views\Search\SearchLog.cshtml" />
     <Content Include="Views\Listing\MyListings.cshtml" />
     <Content Include="Views\Search\MyNewSearchL.cshtml" />
+    <Content Include="Views\Search\MyNewSearch.cshtml" />
+    <Content Include="Views\Listing\CreateComplet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CompletListing\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

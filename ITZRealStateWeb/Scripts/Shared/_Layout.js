@@ -15,10 +15,10 @@ $(document).ready(function () {
     });
 });
 
+//Edit Account
 function EditUserjs(id) {
-    $("#site_content").hide("slow").load('/User/Edit/'+id).show("slow");
+    $("#site_content").hide("slow").load('/User/Edit/' + id).show("slow");
 }
-
 function CancelEditU() {
     $("#site_content").hide("slow");
 }
@@ -37,9 +37,6 @@ function DesireList(id) {
     $("#site_content").hide("slow").load('/Desire/Index/' + id).show("slow");
 }
 
-function EditUserjs(id) {
-    $("#site_content").hide("slow").load('/User/Edit/' + id).show("slow");
-}
 
 function CreateListing() {
     $("#site_content").hide("slow").load('/Listing/Create').show("slow");

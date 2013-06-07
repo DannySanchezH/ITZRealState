@@ -1,8 +1,9 @@
 ﻿
 @model IEnumerable<ITZRealStateWeb.Models.Listing>
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
 
 <p>
-    <a href="#" onclick="CreateListing(@ViewBag.id);">Create New</a>
+    <input class="btn" type="button" onclick="CreateListing(@ViewBag.id);" value="Create New"/>
 </p>
 <table>
     <tr>

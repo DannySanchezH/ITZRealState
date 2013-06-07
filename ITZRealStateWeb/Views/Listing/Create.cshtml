@@ -8,11 +8,14 @@
 @Scripts.Render("~/Scripts/Listing/Index.js")
  
 
+
 @using (Html.BeginForm("CreateListingAjax", "Listing", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
     @Html.ValidationSummary(true)
 
    @* <fieldset>*@
+    
+    <div id=" centro">
 
         <div id="login-box"  class="">
        <div class="form_settings" id=" centro">
@@ -51,26 +54,65 @@
             @Html.ValidationMessageFor(model => model.price)
         </div>
       
-        <div class="editor-label">
-            @Html.LabelFor(model => model.zipcode)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.zipcode)
-            @Html.ValidationMessageFor(model => model.zipcode)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.zipcode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.zipcode)
+                    @Html.ValidationMessageFor(model => model.zipcode)
+                </div>
+            
+                <h3>Add Rooms</h3>
+                <table>
+                    <tr>
+                        <th colspan="2" class="th_ra">Rooms</th>
+                        <th>Amount</th>
+                    </tr>
+                    @foreach(ITZRealStateWeb.Models.Room room in ViewBag.rooms){
+                    <tr>
+                        <td id="chk"> 
+                                <input id="@room.IdRoom" class="room"type="checkbox" name="@room.type">
+                         </td>
+                        <td>
+                                @room.type
+                        </td>
+                        <td>
+                                <input type="text" />
+                        </td>
+                    </tr>
+                    }
+                </table>   
 
-        @Html.HiddenFor(model => model.IdListing)
-		@Html.HiddenFor(model => model.IdUser)
+               <h3>Add Amenities</h3>
+                <table>
+                    <tr>
+                        <th colspan="2" class="th_ra">Amenities</th>
+                    </tr>
+                    @foreach (ITZRealStateWeb.Models.Amenitie amenitie in ViewBag.amenities)
+                    {                        
+                    <tr>
+                        <td id="ck2"> 
+                            <input id="@amenitie.IdAmenitie" class="room"type="checkbox" name="@amenitie.name">
+                         </td>
+                        <td>
+                                @amenitie.name
+                        </td>
+                    </tr>
+                    }
+                </table>
 
-        <p>
-            <input class="btn" type="submit" value="Create" onclick="submitCreate(this.form);" />
-            <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
-        </p>
->>>>>>> Search and favorites
+                @Html.HiddenFor(model => model.IdListing)
+		        @Html.HiddenFor(model => model.IdUser)
+                @Html.HiddenFor(model => model.sold)
+
+                <p>
+                    <input class="btn" type="submit" value="Create" onclick="submitCreate(this.form);" />
+                    <input class="btn" type="submit" value="Cancel" onclick="cancel();" />
+                </p>
            
             </div>
     </div>
-
+   
       
     @*</fieldset>*@
 } 
