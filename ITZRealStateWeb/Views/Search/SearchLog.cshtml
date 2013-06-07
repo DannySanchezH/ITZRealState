@@ -3,21 +3,43 @@
 <script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/logs.css" />
 
 @using (Html.BeginForm("MyNewSearchL", "Search", FormMethod.Get, new { id = "current_form" })) {
     @Html.ValidationSummary(true)
+
  <div id="login-box"  class="">
        <div class="form_settings" id=" centro">
     <div id="centro">
     <div id="login-box" class="sidebar">
-        
+
             @Html.LabelFor(model => model.zipcode)
+        </div>
+        <div class="editor-field">
             @Html.EditorFor(model => model.zipcode)
             @Html.ValidationMessageFor(model => model.zipcode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.minprice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.minprice)
+            @Html.ValidationMessageFor(model => model.minprice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.maxprice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.maxprice)
+            @Html.ValidationMessageFor(model => model.maxprice)
+        </div>
 
         <p>
             <input class="BTN" type="button" value="Search" onclick="submitform(this.form);" />
         </p>
+
            </div>
      </div>
 }
@@ -25,3 +47,4 @@
 
 @Scripts.Render("~/Scripts/Search/Index.js")
 </div></div>
+

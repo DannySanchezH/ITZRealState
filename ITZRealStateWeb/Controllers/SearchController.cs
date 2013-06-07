@@ -23,13 +23,63 @@ namespace ITZRealStateWeb.Controllers
             return PartialView(search);
         }
 
+        public ActionResult SearchNL()
+        {
+            Search search = new Search();
+            return PartialView(search);
+        }
+
         //
         // GET: /Search/Details/5
         public ActionResult MyNewSearchL(Search model)
         {
-            BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetZCList");
-            List<Listing> listings = client.Get<List<Listing>>(model.zipcode.ToString());
-            return PartialView(listings);
+            List<Listing> listZ= new List<Listing>();
+            List<Listing> listMin = new List<Listing>();
+            List<Listing> listMax = new List<Listing>(); 
+            List<Listing> listings = new List<Listing>();
+
+            if (model.zipcode != 0)
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetZCList");
+                listZ=client.Get<List<Listing>>(model.zipcode.ToString());
+                if (model.maxprice != 0)
+                {
+                    foreach (Listing itemz in listZ)
+                    {
+                        if (itemz.price <= model.maxprice)
+                        {
+                            listMax.Add(itemz);
+                        }
+                    }
+                    foreach (Listing itemMax in listMax)
+                    {
+                        if (itemMax.price >= model.minprice)
+                        {
+                            listMin.Add(itemMax);
+                        }
+                    }
+                    return PartialView(listMin);
+                }
+                return PartialView(listZ);
+            }
+            else if (model.maxprice != 0)
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetMinList");
+                listMin = client.Get<List<Listing>>(model.minprice.ToString());
+                foreach (Listing item in listMin)
+                {
+                    if (item.price <= model.maxprice)
+                    {
+                        listMax.Add(item);
+                    }
+                }
+                return PartialView(listMax);
+            }
+            else
+            {
+                return RedirectToAction("SearchLog");
+            }
+
         }
 
         public ActionResult AddFavorite(int id, int idu)
@@ -48,86 +98,12 @@ namespace ITZRealStateWeb.Controllers
             }
             return Redirect("/Dashboard");
         }
-
-        //
-        // GET: /Search/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Search/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Search/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Search/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Search/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Search/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
+
+
     public class Search {
         public int zipcode { get; set; }
+        public int minprice { get; set; }
+        public int maxprice { get; set; }
     }
 }

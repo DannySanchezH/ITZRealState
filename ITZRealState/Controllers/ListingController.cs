@@ -53,7 +53,22 @@ namespace ITZRealState.Controllers
             return _lists;
         }
 
-
+        public IEnumerable<Listing> GetMinList(int id)
+        {
+            List<Listing> _lists = new List<Listing>();
+            _lists = (from list in db.Listings
+                      where list.price >= id
+                      select list).ToList();
+            return _lists;
+        }
+        public IEnumerable<Listing> GetMaxList(int id)
+        {
+            List<Listing> _lists = new List<Listing>();
+            _lists = (from list in db.Listings
+                      where list.price <= id
+                      select list).ToList();
+            return _lists;
+        }
         // PUT api/Listing/5
         public HttpResponseMessage PutListing(long id, Listing listing)
         {

@@ -20,13 +20,6 @@ namespace ITZRealStateWeb.Controllers
             return PartialView(listings);
         }
 
-        public ActionResult MyListings(int id)
-        {
-            BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetMyList");
-            List<Listing> listings = client.Get<List<Listing>>(id.ToString());
-            return PartialView(listings);
-        }
-
         //
         // GET: /Listing/Details/5
 
@@ -74,8 +67,8 @@ namespace ITZRealStateWeb.Controllers
                     return Redirect("/Dashboard");
                 }
             }
-
-            return Redirect("/Dashboard");
+           
+                return Redirect("/Dashboard");
         }
 
         //
@@ -94,19 +87,9 @@ namespace ITZRealStateWeb.Controllers
         [HttpPost]
         public ActionResult EditListingAjax(Listing model)
         {
-            BaseClient client = new BaseClient(baseApiUrl, "Listing", "GetListing");
-            Listing listing = client.Get<Listing>(model.IdListing.ToString());
-            if (ModelState.IsValid == true)
-            {
-                if (user == null)
-                {
-                    client = new BaseClient(baseApiUrl, "Listing", "PostListing");
-                    string result = client.Post<Listing>(model);
-                    return Json(new { success = true });
-                }
                 try
                 {
-                    client = new BaseClient(baseApiUrl, "Listing", "PutListing");
+                    BaseClient client = new BaseClient(baseApiUrl, "Listing", "PutListing");
                     string result = client.Put<Listing>(model.IdListing.ToString(), model);
                     return Json(new { success = true });
                 }
@@ -114,11 +97,6 @@ namespace ITZRealStateWeb.Controllers
                 {
                     return Json(new { success = false, message = "There was an issue with the server, please try again latter." });
                 }
-            }
-            else
-            {
-                return Json(new { success = false, message = "Please correct all the issues." });
-            }
         }
 
         //

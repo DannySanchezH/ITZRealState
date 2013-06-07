@@ -19,7 +19,6 @@ function submitCreate(form) {
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
         if (data.contactId != null) {
             $("#site_content").hide("slow");
-            updateTable(data);
         } else {
             $("#site_content").hide("slow");
         }
@@ -31,6 +30,7 @@ function submitCreate(form) {
 function submitEdit(frm) {
     if (!$(frm).valid()) { return false; }
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
+        $("#site_content").hide("slow").load('/Listing/').show("slow");
         document.location.reload(true);
     });
     return false;

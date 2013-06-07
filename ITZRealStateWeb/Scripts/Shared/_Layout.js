@@ -68,5 +68,6 @@ function Rooms() {
 }
 
 function Search(id) {
+    $("#site_content2").hide("slow");
     $("#site_content").hide("slow").load('/Search/SearchLog/' + id).show("slow");
 }

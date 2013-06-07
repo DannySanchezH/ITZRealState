@@ -257,6 +257,7 @@
     <Content Include="Images\Home\main.png" />
     <Content Include="Scripts\Amenitie\Index.js" />
     <Content Include="Scripts\Desire\Index.js" />
+    <Content Include="Scripts\Home\Index.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -334,11 +335,11 @@
     <Content Include="Views\Amenitie\Create.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\Create.cshtml" />
-    <Content Include="Views\Search\SearchLog.cshtml" />
     <Content Include="Views\Listing\MyListings.cshtml" />
     <Content Include="Views\Search\MyNewSearchL.cshtml" />
     <Content Include="Views\Search\MyNewSearch.cshtml" />
     <Content Include="Views\Listing\CreateComplet.cshtml" />
+    <Content Include="Views\Search\SearchLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
